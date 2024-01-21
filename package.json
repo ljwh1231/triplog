@@ -3,9 +3,10 @@
   "private": true,
   "scripts": {
     "build": "turbo build",
-    "dev": "turbo dev",
+    "dev": "turbo run dev --parallel --no-cache",
     "lint": "turbo lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "test:type": "npx tsc --noemit"
   },
   "devDependencies": {
     "@repo/eslint-config": "*",
