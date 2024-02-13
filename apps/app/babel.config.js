@@ -21,6 +21,7 @@ module.exports = {
         alias: {
           '@screens': './src/screens',
           '@types': './src/types',
+          '@hooks': './src/hooks',
         },
       },
     ],

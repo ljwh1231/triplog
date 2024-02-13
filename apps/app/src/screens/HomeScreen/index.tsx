@@ -1,4 +1,5 @@
 import { ScreenType } from '@types';
+import 'core-js/stable/atob';
 import { View } from 'react-native';
 
 export type HomeScreenParams = {

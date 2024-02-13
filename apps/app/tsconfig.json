@@ -4,7 +4,8 @@
     "baseUrl": "./",
     "paths": {
       "@screens": ["src/screens/index"],
-      "@types": ["src/types/index"]
+      "@types": ["src/types/index"],
+      "@hooks/*": ["src/hooks/*"]
     }
   },
   "include": ["src/**/*", "App.tsx"]
