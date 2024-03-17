@@ -1,3 +1,4 @@
 import HomeScreen from './HomeScreen';
+import MapTestScreen from './MapTestScreen';
 
-export default { HomeScreen };
+export default { HomeScreen, MapTestScreen };

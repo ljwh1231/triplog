@@ -48,7 +48,7 @@ const template = (path) => `
     );
 
     fs.writeFileSync(outputFilePath, template(withTitleSvgList), 'utf-8');
-    console.log('PATH 파일이 성공적으로 생성되었습니다.');
+    console.info('PATH 파일이 성공적으로 생성되었습니다.');
   } catch (error) {
     console.error('PATH 파일 생성 중 오류가 발생하였습니다:', error);
   }
