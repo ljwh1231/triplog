@@ -1,11 +1,8 @@
 import { NavigationContainerRef } from '@react-navigation/native';
-import { HomeScreenParams } from 'src/screens/HomeScreen';
-import { MapTestScreenParams } from 'src/screens/MapTestScreen';
-import { MapDetailScreenParams } from 'src/screens/map.group/map.detail.screen/MapDetailScreen';
+import { HomeGroupParams } from '@screens/home.group/home.group.type';
+import { MapGroupParams } from '@screens/map.group/map.group.type';
 
-type ScreenParamList = HomeScreenParams &
-  MapTestScreenParams &
-  MapDetailScreenParams;
+type ScreenParamList = HomeGroupParams & MapGroupParams;
 
 export type AllRouteParamList = ScreenParamList;
 

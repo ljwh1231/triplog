@@ -11,7 +11,7 @@ const HomeScreen = () => {
   const { navigate } = useNavigationService();
 
   useEffect(() => {
-    navigate('MapTestScreen');
+    navigate('MapListScreen');
   }, []);
 
   return <View style={{ flex: 1, backgroundColor: 'white' }} />;
@@ -19,4 +19,5 @@ const HomeScreen = () => {
 
 export default {
   Screen: HomeScreen,
+  name: 'HomeScreen',
 } as ScreenType.ScreenType;

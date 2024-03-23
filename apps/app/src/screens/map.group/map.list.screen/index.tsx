@@ -9,11 +9,11 @@ import Animated, {
 } from 'react-native-reanimated';
 import { Svg } from 'react-native-svg';
 
-export type MapTestScreenParams = {
-  MapTestScreen: undefined;
+export type MapListScreenParams = {
+  MapListScreen: undefined;
 };
 
-const MapTestScreen = () => {
+const MapListScreen = () => {
   const { mapPathList } = useDetailMapPathList();
 
   const scale = useSharedValue(1);
@@ -80,6 +80,6 @@ const styles = StyleSheet.create({
 });
 
 export default {
-  Screen: MapTestScreen,
-  name: 'MapTestScreen',
+  Screen: MapListScreen,
+  name: 'MapListScreen',
 } as ScreenType.ScreenType;
