@@ -1,18 +1,28 @@
+import { useNavigationService } from '@hooks/navigation';
 import { MapType } from '@types';
 import { mapUtils } from '@utils';
 import { memo } from 'react';
 import { ClipPath, Defs, G, Image, Path, PathProps } from 'react-native-svg';
 
-type SvgMapItemProps = MapType.MapPathData & Omit<PathProps, 'd'>;
+type SvgMapItemProps = MapType.MapPathData &
+  Omit<PathProps, 'd'> & {
+    imageUrl?: string;
+  };
 
 const SvgMapItem = (props: SvgMapItemProps) => {
-  const { path, name, ...pathProps } = props;
+  const { path, name, imageUrl, ...pathProps } = props;
+
+  const { navigate } = useNavigationService();
 
   const clipId = 'clip-path-' + Math.random().toString(36).slice(2, 9);
 
   const { minX, maxX, minY, maxY } = mapUtils.getPathSquareCornerPosition(path);
 
   const width = Math.max(maxX - minX, maxY - minY);
+
+  const handlePress = () => {
+    return navigate('MapDetailScreen', { name });
+  };
 
   return (
     <>
@@ -21,7 +31,7 @@ const SvgMapItem = (props: SvgMapItemProps) => {
           <Path d={path} />
         </ClipPath>
       </Defs>
-      <G>
+      <G onPress={handlePress}>
         <Path
           d={path}
           fill={'white'}
@@ -29,16 +39,18 @@ const SvgMapItem = (props: SvgMapItemProps) => {
           strokeWidth={0.5}
           {...pathProps}
         />
-        <Image
-          xlinkHref={
-            'https://thumb.hypen.im/thumbnail/1q7pk8qw/3/2958/200_200_cover/47mycltmplfgmw39mgqw.jpg'
-          }
-          x={minX}
-          y={minY}
-          width={width}
-          height={width}
-          clipPath={`url(#${clipId})`}
-        />
+        {imageUrl && (
+          <Image
+            xlinkHref={
+              'https://thumb.hypen.im/thumbnail/1q7pk8qw/3/2958/200_200_cover/47mycltmplfgmw39mgqw.jpg'
+            }
+            x={minX}
+            y={minY}
+            width={width}
+            height={width}
+            clipPath={`url(#${clipId})`}
+          />
+        )}
       </G>
     </>
   );

@@ -57,8 +57,6 @@ const MapTestScreen = () => {
 
   if (!mapPathList) return <></>;
 
-  const test = mapPathList[0];
-
   return (
     <View style={styles.container}>
       <GestureDetector gesture={composedGesture}>
@@ -83,4 +81,5 @@ const styles = StyleSheet.create({
 
 export default {
   Screen: MapTestScreen,
+  name: 'MapTestScreen',
 } as ScreenType.ScreenType;

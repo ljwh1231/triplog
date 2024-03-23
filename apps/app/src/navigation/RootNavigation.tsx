@@ -4,8 +4,9 @@ import {
 } from '@react-navigation/native-stack';
 import Screens from '@screens';
 import { jsUtils } from '@repo/utils';
+import MapGroup from 'src/screens/map.group';
 
-const RootStack = createNativeStackNavigator();
+export const RootStack = createNativeStackNavigator();
 
 const DEFAULT_SCREEN_OPTIONS: NativeStackNavigationOptions = {
   headerShown: false,
@@ -34,6 +35,7 @@ const RootNavigation = () => {
           />
         );
       })}
+      {MapGroup()}
     </RootStack.Navigator>
   );
 };

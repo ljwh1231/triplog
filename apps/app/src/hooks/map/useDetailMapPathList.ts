@@ -1,18 +1,18 @@
-import { useEffect, useState } from 'react';
+import { useMemo } from 'react';
 import output from '../../../assets/map.path/output';
-import { MapType } from '@types';
 
 const useDetailMapPathList = () => {
-  const [mapPathList, setMapPathList] = useState<MapType.MapPathData[] | null>(
-    null,
-  );
-
-  useEffect(() => {
-    setMapPathList(output);
+  const mapPathList = useMemo(() => {
+    return output;
   }, []);
+
+  const getPathByName = (name: string) => {
+    return mapPathList.find((p) => p.name === name);
+  };
 
   return {
     mapPathList,
+    getPathByName,
   };
 };
 

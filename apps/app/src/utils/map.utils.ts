@@ -51,3 +51,25 @@ export const getPathSquareCornerPosition = (pathString: string) => {
 
   return { minX, minY, maxX, maxY };
 };
+
+export const getSingleSvgItemStyle = (params: {
+  path: string;
+  itemWidth: number;
+}) => {
+  const { path, itemWidth } = params;
+
+  const { minX, maxX, minY, maxY } = getPathSquareCornerPosition(path);
+
+  const originalItemWidth = maxX - minX;
+  const originalItemHeight = maxY - minY;
+
+  const ratio = originalItemHeight / originalItemWidth;
+
+  const viewBox = `${minX} ${minY} ${originalItemWidth} ${originalItemHeight}`;
+
+  return {
+    viewBox,
+    width: itemWidth,
+    height: itemWidth * ratio,
+  };
+};
