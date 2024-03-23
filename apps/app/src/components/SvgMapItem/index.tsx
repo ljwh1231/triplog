@@ -2,21 +2,32 @@ import { useNavigationService } from '@hooks/navigation';
 import { MapType } from '@types';
 import { mapUtils } from '@utils';
 import { memo } from 'react';
-import { ClipPath, Defs, G, Image, Path, PathProps } from 'react-native-svg';
+import {
+  ClipPath,
+  Defs,
+  G,
+  Image,
+  Path,
+  PathProps,
+  Text,
+} from 'react-native-svg';
 
 type SvgMapItemProps = MapType.MapPathData &
   Omit<PathProps, 'd'> & {
     imageUrl?: string;
+    useText?: boolean;
   };
 
 const SvgMapItem = (props: SvgMapItemProps) => {
-  const { path, name, imageUrl, ...pathProps } = props;
+  const { path, name, imageUrl, useText = true, ...pathProps } = props;
 
   const { navigate } = useNavigationService();
 
   const clipId = 'clip-path-' + Math.random().toString(36).slice(2, 9);
 
   const { minX, maxX, minY, maxY } = mapUtils.getPathSquareCornerPosition(path);
+
+  const { centerX, centerY } = mapUtils.gePathCenterPosition(path);
 
   const width = Math.max(maxX - minX, maxY - minY);
 
@@ -39,6 +50,11 @@ const SvgMapItem = (props: SvgMapItemProps) => {
           strokeWidth={0.5}
           {...pathProps}
         />
+        {useText && centerX && centerY && (
+          <Text x={centerX - 5} y={centerY + 2} fontSize={6}>
+            {name}
+          </Text>
+        )}
         {imageUrl && (
           <Image
             xlinkHref={

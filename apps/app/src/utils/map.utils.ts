@@ -19,7 +19,7 @@ export const gePathCenterPosition = (pathString: string) => {
   var centerX = (minX + maxX) / 2;
   var centerY = (minY + maxY) / 2;
 
-  return { x: centerX, y: centerY };
+  return { centerX, centerY };
 };
 
 export const getPathSquareCornerPosition = (pathString: string) => {

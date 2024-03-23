@@ -37,7 +37,7 @@ const MapDetailScreen = () => {
           height,
           backgroundColor: 'yellow',
         }}>
-        <SvgMapItem path={mapData.path} name={name} />
+        <SvgMapItem path={mapData.path} name={name} useText={false} />
       </Svg>
     </View>
   );

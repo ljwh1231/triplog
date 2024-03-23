@@ -2,6 +2,8 @@ const fs = require('fs');
 const { GeoJSON2SVG } = require('geojson2svg');
 const path = require('path');
 
+const size = 500;
+
 const template = (path) => `
     const test = ${JSON.stringify(path)};
     
@@ -11,8 +13,8 @@ const template = (path) => `
 (() => {
   const converter = new GeoJSON2SVG({
     output: 'path',
-    viewportSize: { width: 1000, height: 1000 },
-    r: 1000,
+    viewportSize: { width: size, height: size },
+    r: size,
   });
 
   try {
@@ -28,8 +30,8 @@ const template = (path) => `
 
     const svgList = converter.convert(jsonData, {
       output: 'path',
-      viewportSize: { width: 1000, height: 1000 },
-      r: 1000,
+      viewportSize: { width: size, height: size },
+      r: size,
     });
 
     const withTitleSvgList = svgList.map((svg, index) => {
