@@ -25,6 +25,7 @@
     "jwt-decode": "^4.0.0",
     "react": "18.2.0",
     "react-native": "0.73.2",
+    "react-native-bootsplash": "^5.4.1",
     "react-native-gesture-handler": "^2.15.0",
     "react-native-mmkv": "^2.12.2",
     "react-native-reanimated": "^3.7.0",
