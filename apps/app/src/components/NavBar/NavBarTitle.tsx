@@ -19,8 +19,11 @@ const styles = StyleSheet.create({
   container: {
     position: 'absolute',
     top: 0,
+    height: 50,
     left: DEVICE_CONSTANTS.WIDTH * 0.2,
     width: DEVICE_CONSTANTS.WIDTH * 0.6,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });
 

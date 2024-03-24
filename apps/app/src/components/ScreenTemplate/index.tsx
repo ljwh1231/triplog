@@ -10,7 +10,12 @@ type ScreenTemplateProps = {
 };
 
 const ScreenTemplate = (props: ScreenTemplateProps) => {
-  const { children, useTopPadding, useBottomPadding, NavBar } = props;
+  const {
+    children,
+    useTopPadding = true,
+    useBottomPadding = true,
+    NavBar,
+  } = props;
 
   const { top, bottom } = useSafeAreaInsets();
 
@@ -32,6 +37,7 @@ const ScreenTemplate = (props: ScreenTemplateProps) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: 'white',
   },
 });
 

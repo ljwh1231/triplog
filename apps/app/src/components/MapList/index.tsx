@@ -9,7 +9,13 @@ import Animated, {
 } from 'react-native-reanimated';
 import Svg from 'react-native-svg';
 
-const MapList = () => {
+type MapListProps = {
+  onPressItem?: (name: string) => void;
+};
+
+const MapList = (props: MapListProps) => {
+  const { onPressItem } = props;
+
   const { mapPathList } = useDetailMapPathList();
 
   const scale = useSharedValue(1);
@@ -57,7 +63,13 @@ const MapList = () => {
         <Animated.View style={[animatedStyle]}>
           <Svg viewBox={'0 0 500 500'}>
             {mapPathList.map((path, index) => {
-              return <SvgMapItem key={`${path.name}-${index}`} {...path} />;
+              return (
+                <SvgMapItem
+                  key={`${path.name}-${index}`}
+                  {...path}
+                  onPress={() => onPressItem && onPressItem(path.name)}
+                />
+              );
             })}
           </Svg>
         </Animated.View>

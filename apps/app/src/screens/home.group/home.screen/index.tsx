@@ -1,7 +1,9 @@
+import MapList from '@components/MapList';
+import ScreenTemplate from '@components/ScreenTemplate';
 import { useNavigationService } from '@hooks/navigation';
 import { ScreenType } from '@types';
-import { useEffect } from 'react';
-import { View } from 'react-native';
+import HomeNavBar from './components/HomeNavBar';
+import { StyleSheet, View } from 'react-native';
 
 export type HomeScreenParams = {
   HomeScreen: undefined;
@@ -10,12 +12,27 @@ export type HomeScreenParams = {
 const HomeScreen = () => {
   const { navigate } = useNavigationService();
 
-  useEffect(() => {
-    navigate('MapListScreen');
-  }, []);
+  const handlePressItem = (name: string) => {
+    return navigate('MapDetailScreen', {
+      name,
+    });
+  };
 
-  return <View style={{ flex: 1, backgroundColor: 'white' }} />;
+  return (
+    <ScreenTemplate useTopPadding useBottomPadding NavBar={<HomeNavBar />}>
+      <View style={styles.mapListContainer}>
+        <MapList onPressItem={handlePressItem} />
+      </View>
+    </ScreenTemplate>
+  );
 };
+
+const styles = StyleSheet.create({
+  mapListContainer: {
+    flex: 1,
+    overflow: 'hidden',
+  },
+});
 
 export default {
   Screen: HomeScreen,

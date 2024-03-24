@@ -16,12 +16,11 @@ type SvgMapItemProps = MapType.MapPathData &
   Omit<PathProps, 'd'> & {
     imageUrl?: string;
     useText?: boolean;
+    onPress?: () => void;
   };
 
 const SvgMapItem = (props: SvgMapItemProps) => {
-  const { path, name, imageUrl, useText = true, ...pathProps } = props;
-
-  const { navigate } = useNavigationService();
+  const { path, name, imageUrl, useText = true, onPress, ...pathProps } = props;
 
   const clipId = 'clip-path-' + Math.random().toString(36).slice(2, 9);
 
@@ -32,7 +31,7 @@ const SvgMapItem = (props: SvgMapItemProps) => {
   const width = Math.max(maxX - minX, maxY - minY);
 
   const handlePress = () => {
-    return navigate('MapDetailScreen', { name });
+    return onPress && onPress();
   };
 
   return (

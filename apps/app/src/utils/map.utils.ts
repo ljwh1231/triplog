@@ -70,6 +70,6 @@ export const getSingleSvgItemStyle = (params: {
   return {
     viewBox,
     width: itemWidth,
-    height: itemWidth * ratio,
+    height: Math.floor(itemWidth * ratio),
   };
 };
