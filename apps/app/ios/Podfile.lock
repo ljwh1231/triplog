@@ -1,4 +1,5 @@
 PODS:
+  - Alamofire (5.9.0)
   - boost (1.83.0)
   - CocoaAsyncSocket (7.6.5)
   - DoubleConversion (1.1.6)
@@ -71,7 +72,32 @@ PODS:
   - hermes-engine (0.73.2):
     - hermes-engine/Pre-built (= 0.73.2)
   - hermes-engine/Pre-built (0.73.2)
+  - kakao-login (5.3.1):
+    - KakaoSDKAuth (= 2.11.1)
+    - KakaoSDKCommon (= 2.11.1)
+    - KakaoSDKUser (= 2.11.1)
+    - React
+  - KakaoSDKAuth (2.11.1):
+    - KakaoSDKCommon (= 2.11.1)
+  - KakaoSDKCommon (2.11.1):
+    - KakaoSDKCommon/Common (= 2.11.1)
+    - KakaoSDKCommon/Network (= 2.11.1)
+  - KakaoSDKCommon/Common (2.11.1)
+  - KakaoSDKCommon/Network (2.11.1):
+    - Alamofire (~> 5.1)
+    - KakaoSDKCommon/Common (= 2.11.1)
+  - KakaoSDKUser (2.11.1):
+    - KakaoSDKAuth (= 2.11.1)
   - libevent (2.1.12)
+  - lottie-ios (4.4.1)
+  - lottie-react-native (6.7.0):
+    - glog
+    - lottie-ios (~> 4.4.1)
+    - RCT-Folly (= 2022.05.16.00)
+    - React-Core
+  - MMKV (1.3.4):
+    - MMKVCore (~> 1.3.4)
+  - MMKVCore (1.3.4)
   - OpenSSL-Universal (1.1.1100)
   - RCT-Folly (2022.05.16.00):
     - boost
@@ -944,6 +970,11 @@ PODS:
   - React-Mapbuffer (0.73.2):
     - glog
     - React-debug
+  - react-native-mmkv (2.12.2):
+    - glog
+    - MMKV (>= 1.3.3)
+    - RCT-Folly (= 2022.05.16.00)
+    - React-Core
   - react-native-safe-area-context (4.9.0):
     - React-Core
   - react-native-skia (0.1.238):
@@ -1121,6 +1152,8 @@ PODS:
     - React-perflogger (= 0.73.2)
   - RNAppleAuthentication (2.3.0):
     - React-Core
+  - RNBootSplash (5.4.1):
+    - React-Core
   - RNGestureHandler (2.15.0):
     - glog
     - RCT-Folly (= 2022.05.16.00)
@@ -1133,6 +1166,8 @@ PODS:
   - RNScreens (3.29.0):
     - glog
     - RCT-Folly (= 2022.05.16.00)
+    - React-Core
+  - RNSVG (13.14.0):
     - React-Core
   - SocketRocket (0.6.1)
   - Yoga (1.14.0)
@@ -1164,7 +1199,9 @@ DEPENDENCIES:
   - FlipperKit/SKIOSNetworkPlugin (= 0.201.0)
   - glog (from `../../../node_modules/react-native/third-party-podspecs/glog.podspec`)
   - hermes-engine (from `../../../node_modules/react-native/sdks/hermes-engine/hermes-engine.podspec`)
+  - "kakao-login (from `../../../node_modules/@react-native-seoul/kakao-login`)"
   - libevent (~> 2.1.12)
+  - lottie-react-native (from `../../../node_modules/lottie-react-native`)
   - OpenSSL-Universal (= 1.1.1100)
   - RCT-Folly (from `../../../node_modules/react-native/third-party-podspecs/RCT-Folly.podspec`)
   - RCT-Folly/Fabric (from `../../../node_modules/react-native/third-party-podspecs/RCT-Folly.podspec`)
@@ -1190,6 +1227,7 @@ DEPENDENCIES:
   - React-jsinspector (from `../../../node_modules/react-native/ReactCommon/jsinspector-modern`)
   - React-logger (from `../../../node_modules/react-native/ReactCommon/logger`)
   - React-Mapbuffer (from `../../../node_modules/react-native/ReactCommon`)
+  - react-native-mmkv (from `../../../node_modules/react-native-mmkv`)
   - react-native-safe-area-context (from `../../../node_modules/react-native-safe-area-context`)
   - "react-native-skia (from `../../../node_modules/@shopify/react-native-skia`)"
   - React-nativeconfig (from `../../../node_modules/react-native/ReactCommon`)
@@ -1213,13 +1251,16 @@ DEPENDENCIES:
   - React-utils (from `../../../node_modules/react-native/ReactCommon/react/utils`)
   - ReactCommon/turbomodule/core (from `../../../node_modules/react-native/ReactCommon`)
   - "RNAppleAuthentication (from `../../../node_modules/@invertase/react-native-apple-authentication`)"
+  - RNBootSplash (from `../../../node_modules/react-native-bootsplash`)
   - RNGestureHandler (from `../../../node_modules/react-native-gesture-handler`)
   - RNReanimated (from `../../../node_modules/react-native-reanimated`)
   - RNScreens (from `../../../node_modules/react-native-screens`)
+  - RNSVG (from `../../../node_modules/react-native-svg`)
   - Yoga (from `../../../node_modules/react-native/ReactCommon/yoga`)
 
 SPEC REPOS:
   trunk:
+    - Alamofire
     - CocoaAsyncSocket
     - Flipper
     - Flipper-Boost-iOSX
@@ -1230,7 +1271,13 @@ SPEC REPOS:
     - Flipper-PeerTalk
     - FlipperKit
     - fmt
+    - KakaoSDKAuth
+    - KakaoSDKCommon
+    - KakaoSDKUser
     - libevent
+    - lottie-ios
+    - MMKV
+    - MMKVCore
     - OpenSSL-Universal
     - SocketRocket
 
@@ -1248,6 +1295,10 @@ EXTERNAL SOURCES:
   hermes-engine:
     :podspec: "../../../node_modules/react-native/sdks/hermes-engine/hermes-engine.podspec"
     :tag: hermes-2023-11-17-RNv0.73.0-21043a3fc062be445e56a2c10ecd8be028dd9cc5
+  kakao-login:
+    :path: "../../../node_modules/@react-native-seoul/kakao-login"
+  lottie-react-native:
+    :path: "../../../node_modules/lottie-react-native"
   RCT-Folly:
     :podspec: "../../../node_modules/react-native/third-party-podspecs/RCT-Folly.podspec"
   RCTRequired:
@@ -1290,6 +1341,8 @@ EXTERNAL SOURCES:
     :path: "../../../node_modules/react-native/ReactCommon/logger"
   React-Mapbuffer:
     :path: "../../../node_modules/react-native/ReactCommon"
+  react-native-mmkv:
+    :path: "../../../node_modules/react-native-mmkv"
   react-native-safe-area-context:
     :path: "../../../node_modules/react-native-safe-area-context"
   react-native-skia:
@@ -1336,16 +1389,21 @@ EXTERNAL SOURCES:
     :path: "../../../node_modules/react-native/ReactCommon"
   RNAppleAuthentication:
     :path: "../../../node_modules/@invertase/react-native-apple-authentication"
+  RNBootSplash:
+    :path: "../../../node_modules/react-native-bootsplash"
   RNGestureHandler:
     :path: "../../../node_modules/react-native-gesture-handler"
   RNReanimated:
     :path: "../../../node_modules/react-native-reanimated"
   RNScreens:
     :path: "../../../node_modules/react-native-screens"
+  RNSVG:
+    :path: "../../../node_modules/react-native-svg"
   Yoga:
     :path: "../../../node_modules/react-native/ReactCommon/yoga"
 
 SPEC CHECKSUMS:
+  Alamofire: 02b772c9910e8eba1a079227c32fbd9e46c90a24
   boost: d3f49c53809116a5d38da093a8aa78bf551aed09
   CocoaAsyncSocket: 065fd1e645c7abab64f7a6a2007a48038fdc6a99
   DoubleConversion: fea03f2699887d960129cc54bba7e52542b6f953
@@ -1362,7 +1420,15 @@ SPEC CHECKSUMS:
   fmt: ff9d55029c625d3757ed641535fd4a75fedc7ce9
   glog: c5d68082e772fa1c511173d6b30a9de2c05a69a2
   hermes-engine: b361c9ef5ef3cda53f66e195599b47e1f84ffa35
+  kakao-login: d3dad7a7bc1a3d187cedb4de83b1ec2e9b1cda30
+  KakaoSDKAuth: bb2dfa7be30daa8403c9cfc8001aa6fde7a5b779
+  KakaoSDKCommon: 555e1bb46595b842ded01cf7888cc17bbae4e113
+  KakaoSDKUser: 08c0a4f40bebdebdf948a9e3d0e44ed5c2754f99
   libevent: 4049cae6c81cdb3654a443be001fb9bdceff7913
+  lottie-ios: e047b1d2e6239b787cc5e9755b988869cf190494
+  lottie-react-native: 36b4c75807716e499317b5c62f53e4d85c5e5c8a
+  MMKV: ed58ad794b3f88c24d604a5b74f3fba17fcbaf74
+  MMKVCore: a67a1cede26175c413176f404a7cedec43f96a0b
   OpenSSL-Universal: ebc357f1e6bc71fa463ccb2fe676756aff50e88c
   RCT-Folly: 7169b2b1c44399c76a47b5deaaba715eeeb476c0
   RCTRequired: 9b1e7e262745fb671e33c51c1078d093bd30e322
@@ -1385,6 +1451,7 @@ SPEC CHECKSUMS:
   React-jsinspector: 03644c063fc3621c9a4e8bf263a8150909129618
   React-logger: 66b168e2b2bee57bd8ce9e69f739d805732a5570
   React-Mapbuffer: 9ee041e1d7be96da6d76a251f92e72b711c651d6
+  react-native-mmkv: 61c0e00963aee12f65c2c34ee83a3dc890026a0d
   react-native-safe-area-context: b97eb6f9e3b7f437806c2ce5983f479f8eb5de4b
   react-native-skia: 88bc2430278842f46935d77888059bc1a2f564b6
   React-nativeconfig: d753fbbc8cecc8ae413d615599ac378bbf6999bb
@@ -1408,12 +1475,14 @@ SPEC CHECKSUMS:
   React-utils: f5bc61e7ea3325c0732ae2d755f4441940163b85
   ReactCommon: 45b5d4f784e869c44a6f5a8fad5b114ca8f78c53
   RNAppleAuthentication: e99eaf3c4c01ad8ecb6125dd6f0cfd98871685b5
+  RNBootSplash: eff8239c4f795ce42a0604873aef3733aac0dedd
   RNGestureHandler: deda62b8339496ba721a45e0f3e2d7a319932cee
   RNReanimated: ec630a026d5bec1e5a06873830795d8a6d257f21
   RNScreens: b582cb834dc4133307562e930e8fa914b8c04ef2
+  RNSVG: d00c8f91c3cbf6d476451313a18f04d220d4f396
   SocketRocket: f32cd54efbe0f095c4d7594881e52619cfe80b17
   Yoga: e64aa65de36c0832d04e8c7bd614396c77a80047
 
-PODFILE CHECKSUM: 752649aa6d434caf1d533e8ae913ff5966a89f79
+PODFILE CHECKSUM: 5993f6a8e074839a03ed984c3d0de1b31e58324d
 
-COCOAPODS: 1.11.3
+COCOAPODS: 1.12.0

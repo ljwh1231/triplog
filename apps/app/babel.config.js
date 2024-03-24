@@ -1,6 +1,12 @@
 module.exports = {
   presets: ['module:@react-native/babel-preset'],
   plugins: [
+    [
+      'babel-plugin-inline-import',
+      {
+        extensions: ['.svg'],
+      },
+    ],
     ['@babel/plugin-proposal-export-namespace-from'],
     ['react-native-reanimated/plugin'],
     [
@@ -22,6 +28,11 @@ module.exports = {
           '@screens': './src/screens',
           '@types': './src/types',
           '@hooks': './src/hooks',
+          '@navigation': './src/navigation',
+          '@components': './src/components',
+          '@utils': './src/utils',
+          '@constants': './src/constants',
+          '@lib': './src/lib',
         },
       },
     ],

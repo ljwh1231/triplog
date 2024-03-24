@@ -1,39 +1,16 @@
-import {
-  NativeStackNavigationOptions,
-  createNativeStackNavigator,
-} from '@react-navigation/native-stack';
-import Screens from '@screens';
-import { jsUtils } from '@repo/utils';
-
-const RootStack = createNativeStackNavigator();
-
-const DEFAULT_SCREEN_OPTIONS: NativeStackNavigationOptions = {
-  headerShown: false,
-};
+import BootSplashGroup from '@screens/bootsplash.group';
+import LoginGroup from '@screens/login.group';
+import HomeGroup from '../screens/home.group';
+import MapGroup from '../screens/map.group';
+import { RootStack } from './RootStack';
 
 const RootNavigation = () => {
-  const allNavigation = jsUtils.typedObjectKeys(Screens).map((key) => ({
-    key,
-    ...Screens[key],
-  }));
-
   return (
-    <RootStack.Navigator>
-      {allNavigation.map((navigation) => {
-        const { Screen, options, key } = navigation;
-
-        return (
-          <RootStack.Screen
-            key={key}
-            name={key}
-            component={Screen}
-            options={{
-              ...DEFAULT_SCREEN_OPTIONS,
-              ...options,
-            }}
-          />
-        );
-      })}
+    <RootStack.Navigator initialRouteName="BootSplashScreen">
+      {BootSplashGroup()}
+      {HomeGroup()}
+      {LoginGroup()}
+      {MapGroup()}
     </RootStack.Navigator>
   );
 };
