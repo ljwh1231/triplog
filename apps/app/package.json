@@ -1,5 +1,5 @@
 {
-  "name": "app",
+  "name": "triplog",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -12,7 +12,7 @@
     "test:type": "npx tsc --noEmit"
   },
   "dependencies": {
-    "@invertase/react-native-apple-authentication": "^2.3.0",
+    "@invertase/react-native-triplogle-authentication": "^2.3.0",
     "@react-native-seoul/kakao-login": "^5.3.1",
     "@react-navigation/bottom-tabs": "^6.5.12",
     "@react-navigation/devtools": "^6.0.20",

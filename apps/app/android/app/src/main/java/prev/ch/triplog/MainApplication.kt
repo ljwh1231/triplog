@@ -1,4 +1,4 @@
-package com.app
+package prev.ch.triplog
 
 import android.app.Application
 import com.facebook.react.PackageList
