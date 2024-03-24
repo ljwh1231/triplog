@@ -9,7 +9,13 @@ const DEFAULT_SCREEN_OPTIONS: NativeStackNavigationOptions = {
 const HomeGroup = () => {
   return (
     <RootStack.Group screenOptions={DEFAULT_SCREEN_OPTIONS}>
-      <RootStack.Screen component={HomeScreen.Screen} name={HomeScreen.name} />
+      <RootStack.Screen
+        component={HomeScreen.Screen}
+        name={HomeScreen.name}
+        options={{
+          animation: 'fade',
+        }}
+      />
     </RootStack.Group>
   );
 };

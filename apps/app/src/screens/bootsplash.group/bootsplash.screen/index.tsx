@@ -1,8 +1,9 @@
 import { ScreenType } from '@types';
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { StyleSheet, View } from 'react-native';
 import RNBootSplash from 'react-native-bootsplash';
 import LottieView from 'lottie-react-native';
+import { useNavigationService } from '@hooks/navigation';
 
 const BootSplashLottie = require('./asset/splash.json');
 
@@ -11,17 +12,28 @@ export type BootSplashScreenParams = {
 };
 
 const BootSplashScreen = () => {
+  const lottieRef = useRef<LottieView>(null);
+
+  const { replace } = useNavigationService();
+
   useEffect(() => {
     RNBootSplash.hide({ fade: false });
+
+    lottieRef.current?.play();
   }, []);
+
+  const onAnimationFinish = () => {
+    return replace('HomeScreen');
+  };
 
   return (
     <View style={styles.container}>
       <LottieView
         source={BootSplashLottie}
-        autoPlay
-        loop
         style={styles.lottie}
+        ref={lottieRef}
+        loop={false}
+        onAnimationFinish={onAnimationFinish}
       />
     </View>
   );
