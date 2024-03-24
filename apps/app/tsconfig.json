@@ -11,5 +11,5 @@
       "@constants": ["src/constants/index"]
     }
   },
-  "include": ["src/**/*", "App.tsx"]
+  "include": ["src/**/*", "App.tsx", "global.d.ts"]
 }

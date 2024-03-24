@@ -1,4 +1,6 @@
 import MapList from '@components/MapList';
+import NavBar from '@components/NavBar';
+import ScreenTemplate from '@components/ScreenTemplate';
 import { ScreenType } from '@types';
 import { StyleSheet, View } from 'react-native';
 
@@ -8,9 +10,9 @@ export type MapListScreenParams = {
 
 const MapListScreen = () => {
   return (
-    <View style={styles.container}>
+    <ScreenTemplate useBottomPadding NavBar={<NavBar title="adasdasda" />}>
       <MapList />
-    </View>
+    </ScreenTemplate>
   );
 };
 
