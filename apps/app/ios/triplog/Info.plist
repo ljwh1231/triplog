@@ -59,7 +59,7 @@
 		</dict>
 	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
+	<string/>
 	<key>UILaunchStoryboardName</key>
 	<string>BootSplash.storyboard</string>
 	<key>UIRequiredDeviceCapabilities</key>
@@ -74,5 +74,13 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>UIAppFonts</key>
+	<array>
+		<string>PretendardStd-Bold.ttf</string>
+		<string>PretendardStd-Light.ttf</string>
+		<string>PretendardStd-Medium.ttf</string>
+		<string>PretendardStd-Regular.ttf</string>
+		<string>PretendardStd-SemiBold.ttf</string>
+	</array>
 </dict>
 </plist>
