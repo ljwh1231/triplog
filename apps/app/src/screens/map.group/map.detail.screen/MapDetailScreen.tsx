@@ -3,6 +3,7 @@ import ScreenTemplate from '@components/ScreenTemplate';
 import SvgMapItem from '@components/SvgMapItem';
 import { useDetailMapPathList } from '@hooks/map';
 import { useNavigationRoute, useNavigationService } from '@hooks/navigation';
+import OptimizeDeviceMap from '@lib/OptimizeDeviceMap';
 import { ScreenType } from '@types';
 import { mapUtils } from '@utils';
 import { Dimensions, StyleSheet, View } from 'react-native';
@@ -15,15 +16,13 @@ export type MapDetailScreenParams = {
 };
 
 const MapDetailScreen = () => {
-  const { getPathByName } = useDetailMapPathList();
-
   const {
     params: { name },
   } = useNavigationRoute('MapDetailScreen');
 
   const { goBack } = useNavigationService();
 
-  const mapData = getPathByName(name);
+  const mapData = OptimizeDeviceMap.getMapPathByName(name);
 
   if (!mapData) return <></>;
 

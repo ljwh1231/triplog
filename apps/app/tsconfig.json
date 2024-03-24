@@ -8,7 +8,8 @@
       "@hooks/*": ["src/hooks/*"],
       "@components/*": ["src/components/*"],
       "@utils": ["src/utils/index"],
-      "@constants": ["src/constants/index"]
+      "@constants": ["src/constants/index"],
+      "@lib/*": ["src/lib/*"]
     }
   },
   "include": ["src/**/*", "App.tsx", "global.d.ts"]

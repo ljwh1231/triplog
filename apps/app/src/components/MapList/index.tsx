@@ -1,6 +1,7 @@
 import SvgMapItem from '@components/SvgMapItem';
 import { DEVICE_CONSTANTS } from '@constants';
 import { useDetailMapPathList } from '@hooks/map';
+import OptimizeDeviceMap from '@lib/OptimizeDeviceMap';
 import { StyleSheet, View } from 'react-native';
 import { Gesture, GestureDetector } from 'react-native-gesture-handler';
 import Animated, {
@@ -15,8 +16,6 @@ type MapListProps = {
 
 const MapList = (props: MapListProps) => {
   const { onPressItem } = props;
-
-  const { mapPathList } = useDetailMapPathList();
 
   const scale = useSharedValue(1);
   const savedScale = useSharedValue(1);
@@ -62,7 +61,7 @@ const MapList = (props: MapListProps) => {
       <GestureDetector gesture={composedGesture}>
         <Animated.View style={[animatedStyle]}>
           <Svg viewBox={'0 0 500 500'}>
-            {mapPathList.map((path, index) => {
+            {OptimizeDeviceMap.getMapData().map((path, index) => {
               return (
                 <SvgMapItem
                   key={`${path.name}-${index}`}

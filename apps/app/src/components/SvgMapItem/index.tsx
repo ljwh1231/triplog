@@ -1,4 +1,3 @@
-import { useNavigationService } from '@hooks/navigation';
 import { MapType } from '@types';
 import { mapUtils } from '@utils';
 import { memo } from 'react';
