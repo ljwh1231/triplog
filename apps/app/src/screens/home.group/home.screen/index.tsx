@@ -4,6 +4,7 @@ import { useNavigationService } from '@hooks/navigation';
 import { ScreenType } from '@types';
 import HomeNavBar from './components/HomeNavBar';
 import { StyleSheet, View } from 'react-native';
+import { useEffect } from 'react';
 
 export type HomeScreenParams = {
   HomeScreen: undefined;
@@ -17,6 +18,10 @@ const HomeScreen = () => {
       name,
     });
   };
+
+  useEffect(() => {
+    navigate('LoginMainScreen');
+  }, []);
 
   return (
     <ScreenTemplate useTopPadding useBottomPadding NavBar={<HomeNavBar />}>
