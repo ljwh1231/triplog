@@ -6,6 +6,8 @@
 #import <React/RCTLinkingManager.h>
 #import <RNKakaoLogins.h>
 
+#import "RNBootSplash.h"
+
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)app
@@ -31,6 +33,18 @@
   self.initialProps = @{};
 
   return [super application:application didFinishLaunchingWithOptions:launchOptions];
+}
+
+- (UIView *)createRootViewWithBridge:(RCTBridge *)bridge
+                          moduleName:(NSString *)moduleName
+                           initProps:(NSDictionary *)initProps {
+  UIView *rootView = [super createRootViewWithBridge:bridge
+                                          moduleName:moduleName
+                                           initProps:initProps];
+
+  [RNBootSplash initWithStoryboard:@"BootSplash" rootView:rootView];
+
+  return rootView;
 }
 
 - (NSURL *)sourceURLForBridge:(RCTBridge *)bridge

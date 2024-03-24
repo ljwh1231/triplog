@@ -1,12 +1,13 @@
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import BootSplashGroup from '@screens/bootsplash.group';
+import LoginGroup from '@screens/login.group';
 import HomeGroup from '../screens/home.group';
 import MapGroup from '../screens/map.group';
 import { RootStack } from './RootStack';
-import LoginGroup from '@screens/login.group';
 
 const RootNavigation = () => {
   return (
-    <RootStack.Navigator>
+    <RootStack.Navigator initialRouteName="BootSplashScreen">
+      {BootSplashGroup()}
       {HomeGroup()}
       {LoginGroup()}
       {MapGroup()}
