@@ -10,7 +10,7 @@ import {
   ApiOperation,
   ApiTags,
 } from '@nestjs/swagger';
-import { ResOAuth } from 'types';
+import { ResOAuth, ResUser, User } from 'types';
 
 @Controller('users')
 @ApiTags('유저 API')
@@ -41,11 +41,21 @@ export class UserController {
   @ApiOperation({
     summary: '로그인 및 회원 정보 가져오기',
   })
-  @ApiOkResponse()
-  async signInUser(@Req() request: Request) {
+  @ApiOkResponse({ type: ResUser })
+  async signInUser(@Req() request: Request): Promise<ResUser> {
     const supabase = this.supabaseService.getClient();
     const accessToken = request.headers['authorization'] as string;
     const token = accessToken.replace('Bearer ', '');
-    return await supabase.auth.getUser(token);
+    const {
+      data: { user },
+    } = await supabase.auth.getUser(token);
+    const newUser = new User();
+    newUser.id = user.id;
+    newUser.email = user.email;
+    newUser.username = user.user_metadata['name'] as string;
+
+    const resUser = new ResUser();
+    resUser.data = newUser;
+    return resUser;
   }
 }
