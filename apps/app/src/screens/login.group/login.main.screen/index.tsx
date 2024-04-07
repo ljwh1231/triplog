@@ -1,0 +1,54 @@
+import ScreenTemplate from '@components/ScreenTemplate';
+import { useAppleAuth } from '@hooks/auth';
+import useKakaoAuth from '@hooks/auth/useKakaoAuth';
+import { ScreenType } from '@types';
+import { StyleSheet, Text, TouchableWithoutFeedback, View } from 'react-native';
+
+export type LoginMainScreenParams = {
+  LoginMainScreen: undefined;
+};
+
+const LoginMainScreen = () => {
+  const { handleAppleAuth } = useAppleAuth();
+
+  const { handleKakaoAuth } = useKakaoAuth();
+
+  return (
+    <ScreenTemplate>
+      <View style={styles.container}>
+        <TouchableWithoutFeedback onPress={handleKakaoAuth}>
+          <View style={styles.button}>
+            <Text>카카오</Text>
+          </View>
+        </TouchableWithoutFeedback>
+        <TouchableWithoutFeedback onPress={handleAppleAuth}>
+          <View style={styles.button}>
+            <Text>애플</Text>
+          </View>
+        </TouchableWithoutFeedback>
+      </View>
+    </ScreenTemplate>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingHorizontal: 20,
+    gap: 12,
+  },
+  button: {
+    width: '100%',
+    height: 50,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'yellow',
+  },
+});
+
+export default {
+  Screen: LoginMainScreen,
+  name: 'LoginMainScreen',
+} as ScreenType.ScreenType;
