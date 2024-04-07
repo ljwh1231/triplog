@@ -13,8 +13,8 @@ class OptimizeDeviceMap {
     const converter = new GeoJSON2SVG({
       output: 'path',
       viewportSize: {
-        width: DEVICE_CONSTANTS.WIDTH,
-        height: DEVICE_CONSTANTS.WIDTH,
+        width: DEVICE_CONSTANTS.WIDTH / 3,
+        height: DEVICE_CONSTANTS.WIDTH / 3,
       },
       r: DEVICE_CONSTANTS.WIDTH,
     });

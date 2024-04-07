@@ -33,6 +33,8 @@ module.exports = {
           '@utils': './src/utils',
           '@constants': './src/constants',
           '@lib': './src/lib',
+          '@apis': './src/apis',
+          '@storages': './src/storages',
         },
       },
     ],
