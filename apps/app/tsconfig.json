@@ -9,7 +9,9 @@
       "@components/*": ["src/components/*"],
       "@utils": ["src/utils/index"],
       "@constants": ["src/constants/index"],
-      "@lib/*": ["src/lib/*"]
+      "@lib/*": ["src/lib/*"],
+      "@apis": ["src/apis/index"],
+      "@storages": ["src/storages/index"]
     }
   },
   "include": ["src/**/*", "App.tsx", "global.d.ts"]

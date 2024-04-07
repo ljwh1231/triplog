@@ -45,11 +45,11 @@ const SvgMapItem = (props: SvgMapItemProps) => {
           d={path}
           fill={'white'}
           stroke={'black'}
-          strokeWidth={0.5}
+          strokeWidth={0.2}
           {...pathProps}
         />
         {useText && centerX && centerY && (
-          <Text x={centerX - 5} y={centerY + 2} fontSize={6}>
+          <Text x={centerX - 2} y={centerY + 1} fontSize={1.5}>
             {name}
           </Text>
         )}

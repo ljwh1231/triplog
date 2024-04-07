@@ -1,6 +1,5 @@
 import SvgMapItem from '@components/SvgMapItem';
 import { DEVICE_CONSTANTS } from '@constants';
-import { useDetailMapPathList } from '@hooks/map';
 import OptimizeDeviceMap from '@lib/OptimizeDeviceMap';
 import { StyleSheet, View } from 'react-native';
 import { Gesture, GestureDetector } from 'react-native-gesture-handler';
@@ -60,7 +59,11 @@ const MapList = (props: MapListProps) => {
     <View style={styles.container}>
       <GestureDetector gesture={composedGesture}>
         <Animated.View style={[animatedStyle]}>
-          <Svg viewBox={'0 0 500 500'}>
+          <Svg
+            viewBox={`0 0 ${DEVICE_CONSTANTS.WIDTH / 3} ${
+              DEVICE_CONSTANTS.WIDTH / 3
+            }`}
+            preserveAspectRatio="xMaxYMin meet">
             {OptimizeDeviceMap.getMapData().map((path, index) => {
               return (
                 <SvgMapItem

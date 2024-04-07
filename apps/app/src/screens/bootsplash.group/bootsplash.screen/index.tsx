@@ -23,7 +23,7 @@ const BootSplashScreen = () => {
   }, []);
 
   const onAnimationFinish = () => {
-    return replace('HomeScreen');
+    return replace('LoginMainScreen');
   };
 
   return (
