@@ -24,7 +24,8 @@ const BootSplashScreen = () => {
 
   const onAnimationFinish = () => {
     // return replace('HomeScreen');
-    return replace('MapSearchScreen');
+    // return replace('MapSearchScreen');
+    return replace('MapMyListScreen', { title: '친구랑' });
   };
 
   return (
