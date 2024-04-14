@@ -1,6 +1,7 @@
 import SvgIcon from '@components/SvgIcon';
 import { SvgIconKey } from '@components/SvgIcon/svgicon.type';
-import { TouchableOpacity } from 'react-native';
+import { useRef } from 'react';
+import { TouchableOpacity, View } from 'react-native';
 
 type NavBarIconProps = {
   iconName: SvgIconKey;
@@ -12,7 +13,7 @@ const NavBarIcon = (props: NavBarIconProps) => {
 
   return (
     <TouchableOpacity onPress={onPress}>
-      <SvgIcon iconName={iconName} size={30} />
+      <SvgIcon iconName={iconName} size={24} />
     </TouchableOpacity>
   );
 };

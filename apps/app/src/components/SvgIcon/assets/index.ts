@@ -8,6 +8,7 @@ import share from './ic_share.svg';
 import kakao from './ic_kakao.svg';
 import apple from './ic_apple.svg';
 import magnifying from './ic_magnifying.svg';
+import more from './ic_more.svg';
 
 export {
   arrowDown,
@@ -20,4 +21,5 @@ export {
   kakao,
   apple,
   magnifying,
+  more,
 };

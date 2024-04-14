@@ -6,6 +6,7 @@ import { useCallback, useState } from 'react';
 import { FlatList, ListRenderItem, RefreshControl, View } from 'react-native';
 import MyMapListItem from './component/MyMapListItem';
 import { tsUtils } from '@utils';
+import MyMapListNavBar from './component/MyMapListNavBar';
 
 export type MapMyListScreenParams = {
   MapMyListScreen: {
@@ -74,12 +75,7 @@ const MapMyListScreen = () => {
 
   return (
     <ScreenTemplate
-      NavBar={
-        <NavBar
-          title={title}
-          leftComponent={<NavBar.Icon iconName="arrowLeft" />}
-        />
-      }
+      NavBar={<MyMapListNavBar title={title} />}
       useBottomPadding={false}>
       <FlatList
         data={dummy}
