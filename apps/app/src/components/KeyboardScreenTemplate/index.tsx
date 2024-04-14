@@ -1,18 +1,22 @@
-import { KeyboardAvoidingView, Platform } from 'react-native';
+import ScreenTemplate, {
+  ScreenTemplateProps,
+} from '@components/ScreenTemplate';
+import {
+  Keyboard,
+  KeyboardAvoidingView,
+  Platform,
+  TouchableWithoutFeedback,
+} from 'react-native';
 
-type KeyboardScreenTemplateProps = {
-  children: React.ReactNode;
-};
-
-const KeyboardScreenTemplate = (props: KeyboardScreenTemplateProps) => {
-  const { children } = props;
-
+const KeyboardScreenTemplate = (props: ScreenTemplateProps) => {
   return (
-    <KeyboardAvoidingView
-      behavior={Platform.OS === 'ios' ? 'padding' : undefined}
-      style={{ flex: 1 }}>
-      {children}
-    </KeyboardAvoidingView>
+    <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+      <KeyboardAvoidingView
+        behavior={Platform.OS === 'ios' ? 'padding' : undefined}
+        style={{ flex: 1 }}>
+        <ScreenTemplate {...props} useBottomPadding={false} />
+      </KeyboardAvoidingView>
+    </TouchableWithoutFeedback>
   );
 };
 

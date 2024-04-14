@@ -10,7 +10,7 @@ import {
   ViewStyle,
 } from 'react-native';
 
-type ButtonProps = {
+export type ButtonProps = {
   text: string;
   iconName?: SvgIconKey;
   style?: StyleProp<ViewStyle>;
@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     borderRadius: 100,
     gap: 2,
-    backgroundColor: 'red',
+    backgroundColor: 'yellow',
   },
 });
 

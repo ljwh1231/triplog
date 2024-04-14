@@ -10330,6 +10330,11 @@ react-native-gesture-handler@^2.15.0:
     lodash "^4.17.21"
     prop-types "^15.7.2"
 
+react-native-global-components@^1.1.4:
+  version "1.1.4"
+  resolved "https://registry.yarnpkg.com/react-native-global-components/-/react-native-global-components-1.1.4.tgz#805d5ddeabc24d46e701d91c233d7dc51478d8bd"
+  integrity sha512-IK8ekyP3uARjC/8N5++t1AFIkIjCeJtFQpcNiypxbCn3Fw504dUmtsjXqiBhz8pHQ8nkD+12W9ENVgi99sBCEg==
+
 react-native-mmkv@^2.12.2:
   version "2.12.2"
   resolved "https://registry.yarnpkg.com/react-native-mmkv/-/react-native-mmkv-2.12.2.tgz#4bba0f5f04e2cf222494cce3a9794ba6a4894dee"
