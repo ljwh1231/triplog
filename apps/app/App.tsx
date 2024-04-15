@@ -3,6 +3,7 @@ import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import CommonPopup from 'src/global-components/CommonPopup';
 import DropDown from 'src/global-components/DropDown';
+import Toast from 'src/global-components/Toast';
 import RootNavigation from 'src/navigation/RootNavigation';
 
 const App = () => {
@@ -13,6 +14,7 @@ const App = () => {
           <RootNavigation />
           <DropDown.Portal />
           <CommonPopup.Portal />
+          <Toast.Portal />
         </NavigationContainer>
       </SafeAreaProvider>
     </GestureHandlerRootView>
