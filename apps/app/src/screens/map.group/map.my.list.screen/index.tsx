@@ -1,11 +1,10 @@
-import NavBar from '@components/NavBar';
 import ScreenTemplate from '@components/ScreenTemplate';
 import { useNavigationRoute } from '@hooks/navigation';
 import { ScreenType } from '@types';
-import { useCallback, useState } from 'react';
-import { FlatList, ListRenderItem, RefreshControl, View } from 'react-native';
-import MyMapListItem from './component/MyMapListItem';
 import { tsUtils } from '@utils';
+import { useCallback, useState } from 'react';
+import { FlatList, ListRenderItem, RefreshControl } from 'react-native';
+import MyMapListItem from './component/MyMapListItem';
 import MyMapListNavBar from './component/MyMapListNavBar';
 
 export type MapMyListScreenParams = {
