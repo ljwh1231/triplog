@@ -1,5 +1,6 @@
+import Font from '@components/Font/Font';
 import { DEVICE_CONSTANTS } from '@constants';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 
 type NavBarTitleProps = {
   title: string;
@@ -10,7 +11,7 @@ const NavBarTitle = (props: NavBarTitleProps) => {
 
   return (
     <View style={styles.container}>
-      <Text style={{ textAlign: 'center' }}>{title}</Text>
+      <Font type="bold_20" text={title} />
     </View>
   );
 };

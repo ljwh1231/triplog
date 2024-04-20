@@ -1,12 +1,14 @@
+import Button from '@components/Button';
+import KeyboardScreenTemplate from '@components/KeyboardScreenTemplate';
 import NavBar from '@components/NavBar';
-import ScreenTemplate from '@components/ScreenTemplate';
 import SvgMapItem from '@components/SvgMapItem';
-import { useDetailMapPathList } from '@hooks/map';
+import TextInput from '@components/TextInput';
 import { useNavigationRoute, useNavigationService } from '@hooks/navigation';
 import OptimizeDeviceMap from '@lib/OptimizeDeviceMap';
 import { ScreenType } from '@types';
 import { mapUtils } from '@utils';
-import { Dimensions, StyleSheet, View } from 'react-native';
+import { useState } from 'react';
+import { Dimensions, ScrollView, StyleSheet, View } from 'react-native';
 import { Svg } from 'react-native-svg';
 
 export type MapDetailScreenParams = {
@@ -20,6 +22,8 @@ const MapDetailScreen = () => {
     params: { name },
   } = useNavigationRoute('MapDetailScreen');
 
+  const [text, setText] = useState('');
+
   const { goBack } = useNavigationService();
 
   const mapData = OptimizeDeviceMap.getMapPathByName(name);
@@ -32,24 +36,37 @@ const MapDetailScreen = () => {
   });
 
   return (
-    <ScreenTemplate
+    <KeyboardScreenTemplate
       NavBar={
         <NavBar
           title={name}
           leftComponent={<NavBar.Icon iconName="arrowLeft" onPress={goBack} />}
         />
       }>
-      <View style={styles.mapItemContainer}>
-        <Svg
-          viewBox={viewBox}
-          style={{
-            width,
-            height,
-          }}>
-          <SvgMapItem path={mapData.path} name={name} useText={false} />
-        </Svg>
-      </View>
-    </ScreenTemplate>
+      <ScrollView style={styles.container}>
+        <View style={styles.mapItemContainer}>
+          <Svg
+            viewBox={viewBox}
+            style={{
+              width,
+              height,
+            }}>
+            <SvgMapItem path={mapData.path} name={name} useText={false} />
+          </Svg>
+          <TextInput.MultiLine
+            text={text}
+            onChangeText={setText}
+            placeholder="여행을 생생하게 기록해보세요 :)"
+          />
+        </View>
+      </ScrollView>
+      <Button.KeyboardButton
+        text="다음"
+        onPress={() => {
+          console.log('hihi');
+        }}
+      />
+    </KeyboardScreenTemplate>
   );
 };
 

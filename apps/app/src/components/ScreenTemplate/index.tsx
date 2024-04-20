@@ -1,8 +1,7 @@
-import NavBar from '@components/NavBar';
 import { StyleSheet, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
-type ScreenTemplateProps = {
+export type ScreenTemplateProps = {
   children: React.ReactNode;
   useTopPadding?: boolean;
   useBottomPadding?: boolean;
@@ -24,8 +23,8 @@ const ScreenTemplate = (props: ScreenTemplateProps) => {
       style={StyleSheet.flatten([
         styles.container,
         {
-          paddingTop: useBottomPadding ? top : 0,
-          paddingBottom: useTopPadding ? bottom : 0,
+          paddingTop: useTopPadding ? top : 0,
+          paddingBottom: useBottomPadding ? bottom : 0,
         },
       ])}>
       {NavBar}

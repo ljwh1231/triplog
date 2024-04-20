@@ -10,7 +10,7 @@ import {
   ViewStyle,
 } from 'react-native';
 
-type ButtonProps = {
+export type ButtonProps = {
   text: string;
   iconName?: SvgIconKey;
   style?: StyleProp<ViewStyle>;
@@ -27,7 +27,7 @@ const Button = (props: ButtonProps) => {
       style={StyleSheet.flatten([styles.container, style])}>
       <View style={StyleSheet.flatten([styles.container, style])}>
         {iconName && <SvgIcon iconName={iconName} size={24} />}
-        <Font type="semibold_18" style={fontStyle} text={text} />
+        <Font type="semibold_18" color="white" style={fontStyle} text={text} />
       </View>
     </TouchableOpacity>
   );
@@ -40,9 +40,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     flexDirection: 'row',
-    borderRadius: 100,
+    borderRadius: 12,
     gap: 2,
-    backgroundColor: 'red',
+    backgroundColor: '#0075FF',
   },
 });
 
