@@ -1,15 +1,8 @@
 import NavBar from '@components/NavBar';
 import { StyleSheet, Text, View } from 'react-native';
+import SelectMap from './SelectMap';
 
 const HomeNavBar = () => {
-  const leftComponent = () => {
-    return (
-      <View>
-        <Text>Left</Text>
-      </View>
-    );
-  };
-
   const rightComponent = () => {
     return (
       <View style={styles.rightComponentContainer}>
@@ -20,7 +13,7 @@ const HomeNavBar = () => {
   };
 
   return (
-    <NavBar rightComponent={rightComponent()} leftComponent={leftComponent()} />
+    <NavBar rightComponent={rightComponent()} leftComponent={<SelectMap />} />
   );
 };
 

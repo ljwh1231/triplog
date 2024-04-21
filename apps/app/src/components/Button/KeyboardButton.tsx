@@ -10,13 +10,12 @@ const KeyboardButton = (props: ButtonProps) => {
   const { bottom } = useSafeAreaInsets();
 
   const animatedStyle = useAnimatedStyle(() => ({
-    paddingBottom: isKeyboardVisible ? 0 : bottom || 8,
-    paddingHorizontal: isKeyboardVisible ? 0 : 20,
+    paddingBottom: isKeyboardVisible ? 8 : bottom,
   }));
 
   return (
     <Animated.View style={[styles.container, animatedStyle]}>
-      <Button {...props} style={{ borderRadius: isKeyboardVisible ? 0 : 12 }} />
+      <Button {...props} style={{ borderRadius: 12 }} />
     </Animated.View>
   );
 };
@@ -24,6 +23,7 @@ const KeyboardButton = (props: ButtonProps) => {
 const styles = StyleSheet.create({
   container: {
     width: '100%',
+    paddingHorizontal: 20,
   },
 });
 

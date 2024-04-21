@@ -11,7 +11,7 @@ import {
   View,
 } from 'react-native';
 
-type SingleLineProps = {
+export type SingleLineProps = {
   text: string;
   onChangeText: (text: string) => void;
   onFocus?: () => void;
