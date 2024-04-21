@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { UI_CONSTANTS } from '@constants';
+import { useEffect, useRef, useState } from 'react';
 import {
   StyleProp,
   StyleSheet,
@@ -14,7 +15,10 @@ type MultiLineProps = {
 } & Omit<TextInputProps, 'value' | 'onChangeText' | 'onFocus'>;
 
 const MultiLine = (props: MultiLineProps) => {
-  const { text, onChangeText, onFocus, style, ...textInputProps } = props;
+  const { text, onChangeText, onFocus, style, autoFocus, ...textInputProps } =
+    props;
+
+  const ref = useRef<TextInput>(null);
 
   const [focused, setFocused] = useState(false);
 
@@ -31,8 +35,21 @@ const MultiLine = (props: MultiLineProps) => {
     };
   };
 
+  useEffect(() => {
+    if (autoFocus) {
+      const timeout = setTimeout(() => {
+        ref.current?.focus();
+      }, UI_CONSTANTS.DEFAULT_SAFE_KEYBOARD_TIMEOUT);
+
+      return () => {
+        clearTimeout(timeout);
+      };
+    }
+  }, [autoFocus]);
+
   return (
     <TextInput
+      ref={ref}
       multiline
       value={text}
       onChangeText={onChangeText}

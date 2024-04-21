@@ -64,6 +64,7 @@ const MapDetailScreen = () => {
             text={text}
             onChangeText={setText}
             placeholder="여행을 생생하게 기록해보세요 :)"
+            autoFocus
           />
         </View>
       </ScrollView>
