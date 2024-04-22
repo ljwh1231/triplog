@@ -17,3 +17,7 @@ export type AppleAuthDecodedResponse = {
   nonce_supported: boolean;
   sub: string;
 };
+
+export type ResLogin = {
+  token: string;
+}
