@@ -1,5 +1,5 @@
 import axios, { AxiosResponse } from 'axios';
-import { AbstractHeader, TypedAxiosInstance } from './api.type';
+import { AbstractHeader, TypedAxiosInstance } from './api.instance.type';
 
 class API {
   private static axiosInstance: TypedAxiosInstance;
@@ -57,4 +57,4 @@ class API {
   }
 }
 
-export default new API();
+export default API;

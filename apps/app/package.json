@@ -21,6 +21,7 @@
     "@react-navigation/native": "^6.1.10",
     "@react-navigation/native-stack": "^6.9.18",
     "@repo/utils": "*",
+    "@repo/apis": "*",
     "@shopify/react-native-skia": "^0.1.238",
     "@supabase/supabase-js": "^2.42.0",
     "@tanstack/react-query": "^5.20.2",
