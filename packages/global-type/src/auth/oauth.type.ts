@@ -20,4 +20,10 @@ export type AppleAuthDecodedResponse = {
 
 export type ResLogin = {
   token: string;
-}
+};
+
+export type Profile = {
+  id: number;
+  email: string;
+  name: string;
+};
