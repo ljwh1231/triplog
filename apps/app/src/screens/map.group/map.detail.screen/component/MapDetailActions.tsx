@@ -3,9 +3,12 @@ import { StyleSheet, TouchableOpacity, View } from 'react-native';
 import ColorPickerBottomSheet from 'src/global-components/ColorPickerBottomSheet';
 import { useMapDetailContext } from '../context/MapDetailContex';
 import { useImagePicker } from '@hooks/image';
+import { usePermission } from '@hooks/permission';
 
 const MapDetailActions = () => {
   const { detailData, setDetailData } = useMapDetailContext();
+
+  const { hasPermission, requestPermission } = usePermission();
 
   const { selectImage } = useImagePicker();
 
@@ -14,9 +17,16 @@ const MapDetailActions = () => {
   };
 
   const handlePressPhoto = () => {
-    return selectImage({
-      multiple: false,
-      onSelect: (image) => {
+    return requestPermission({
+      permissionKey: 'CAMERA_PERMISSION',
+      onGranted: () =>
+        selectImage({
+          multiple: false,
+          onSelect: (image) => {
+            console.log(image);
+          },
+        }),
+      onDenied: () => {
         console.log('TODO');
       },
     });

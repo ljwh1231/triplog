@@ -58,8 +58,16 @@
 			</dict>
 		</dict>
 	</dict>
+	<key>NSCameraUsageDescription</key>
+	<string>[REASON]</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string></string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>[REASON]</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>[REASON]</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>[REASON]</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>PretendardStd-Bold.ttf</string>
