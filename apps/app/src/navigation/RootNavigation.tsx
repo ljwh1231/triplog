@@ -4,6 +4,7 @@ import HomeGroup from '../screens/home.group';
 import MapGroup from '../screens/map.group';
 import { RootStack } from './RootStack';
 import { useInitializeApp } from '@hooks/core';
+import HistoryGroup from '@screens/history.group';
 
 const RootNavigation = () => {
   const { isInitialized } = useInitializeApp();
@@ -16,6 +17,7 @@ const RootNavigation = () => {
       {HomeGroup()}
       {LoginGroup()}
       {MapGroup()}
+      {HistoryGroup()}
     </RootStack.Navigator>
   );
 };

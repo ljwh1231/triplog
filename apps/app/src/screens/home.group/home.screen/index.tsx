@@ -3,7 +3,7 @@ import MapList from '@components/MapList';
 import ScreenTemplate from '@components/ScreenTemplate';
 import { useNavigationService } from '@hooks/navigation';
 import { ScreenType } from '@types';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, TouchableOpacity, View } from 'react-native';
 import HomeNavBar from './components/HomeNavBar';
 import SvgIcon from '@components/SvgIcon';
 
@@ -24,15 +24,21 @@ const HomeScreen = () => {
     return navigate('MapSearchScreen');
   };
 
+  const handlePressHistory = () => {
+    return navigate('HistoryListScreen');
+  };
+
   return (
     <ScreenTemplate useTopPadding useBottomPadding NavBar={<HomeNavBar />}>
       <View style={styles.mapListContainer}>
         <MapList onPressItem={handlePressItem} />
       </View>
       <View style={styles.buttonContainer}>
-        <View style={styles.historyButton}>
+        <TouchableOpacity
+          style={styles.historyButton}
+          onPress={handlePressHistory}>
           <SvgIcon iconName="book" size={30} />
-        </View>
+        </TouchableOpacity>
         <Button.Button onPress={handlePressRecord} text="여행 기록하기" />
       </View>
     </ScreenTemplate>
