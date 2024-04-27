@@ -1,3 +1,3 @@
-import { useAsyncEffect, useAsyncLayoutEffect } from './useAsyncEffect';
+import useAsyncEffect from './useAsyncEffect';
 
-export { useAsyncEffect, useAsyncLayoutEffect };
+export { useAsyncEffect };

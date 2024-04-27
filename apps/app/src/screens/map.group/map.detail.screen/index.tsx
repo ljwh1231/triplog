@@ -33,6 +33,7 @@ const MapDetailScreen = () => {
   const { viewBox, width, height } = mapUtils.getSingleSvgItemStyle({
     path: mapData.path,
     itemWidth: Dimensions.get('screen').width - 40,
+    detail: true,
   });
 
   return (
@@ -50,13 +51,20 @@ const MapDetailScreen = () => {
             style={{
               width,
               height,
+              marginBottom: 20,
             }}>
-            <SvgMapItem path={mapData.path} name={name} useText={false} />
+            <SvgMapItem
+              path={mapData.path}
+              name={name}
+              useText={false}
+              strokeWidth={0.05}
+            />
           </Svg>
           <TextInput.MultiLine
             text={text}
             onChangeText={setText}
             placeholder="여행을 생생하게 기록해보세요 :)"
+            autoFocus
           />
         </View>
       </ScrollView>

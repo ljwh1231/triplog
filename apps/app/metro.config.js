@@ -19,7 +19,6 @@ config.resolver = {
     path.resolve(projectRoot, 'node_modules'),
     path.resolve(workspaceRoot, 'node_modules'),
   ],
-  sourceExts: ['jsx', 'js', 'ts', 'tsx', 'cjs', 'json', 'd.ts'],
 };
 
 config.transformer = {
@@ -30,5 +29,7 @@ config.transformer = {
     },
   }),
 };
+
+config.resolver.disableHierarchicalLookup = true;
 
 module.exports = mergeConfig(getDefaultConfig(__dirname), config);

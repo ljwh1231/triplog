@@ -55,6 +55,7 @@ export const getPathSquareCornerPosition = (pathString: string) => {
 export const getSingleSvgItemStyle = (params: {
   path: string;
   itemWidth: number;
+  detail?: boolean;
 }) => {
   const { path, itemWidth } = params;
 
@@ -65,11 +66,37 @@ export const getSingleSvgItemStyle = (params: {
 
   const ratio = originalItemHeight / originalItemWidth;
 
-  const viewBox = `${minX} ${minY} ${originalItemWidth} ${originalItemHeight}`;
-
   return {
-    viewBox,
+    viewBox: getViewBox({
+      minX,
+      minY,
+      maxX,
+      maxY,
+      isDetail: params.detail,
+    }),
     width: itemWidth,
-    height: Math.floor(itemWidth * ratio),
+    height: itemWidth * ratio,
   };
+};
+
+export const getViewBox = (params: {
+  minX: number;
+  minY: number;
+  maxX: number;
+  maxY: number;
+  isDetail?: boolean;
+}) => {
+  const { minX, minY, maxX, maxY, isDetail } = params;
+
+  const originalItemWidth = maxX - minX;
+  const originalItemHeight = maxY - minY;
+
+  const adjustmentRatio = isDetail ? 0.05 : 0;
+
+  const widthAdjustment = originalItemWidth * adjustmentRatio;
+  const heightAdjustment = originalItemHeight * adjustmentRatio;
+
+  return `${minX - widthAdjustment} ${minY - heightAdjustment} ${
+    originalItemWidth + widthAdjustment
+  } ${originalItemHeight + heightAdjustment}`;
 };

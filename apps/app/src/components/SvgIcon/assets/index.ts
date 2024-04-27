@@ -9,6 +9,8 @@ import kakao from './ic_kakao.svg';
 import apple from './ic_apple.svg';
 import magnifying from './ic_magnifying.svg';
 import more from './ic_more.svg';
+import check from './ic_check.svg';
+import plus from './ic_plus.svg';
 
 export {
   arrowDown,
@@ -22,4 +24,6 @@ export {
   apple,
   magnifying,
   more,
+  check,
+  plus,
 };
