@@ -15,7 +15,7 @@
     "@gorhom/bottom-sheet": "^4",
     "@invertase/react-native-apple-authentication": "^2.3.0",
     "@react-native-async-storage/async-storage": "^1.23.1",
-    "@react-native-seoul/kakao-login": "^5.3.1",
+    "@react-native-seoul/kakao-login": "5.3.0",
     "@react-navigation/bottom-tabs": "^6.5.12",
     "@react-navigation/devtools": "^6.0.20",
     "@react-navigation/native": "^6.1.10",

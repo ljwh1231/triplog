@@ -1,6 +1,6 @@
 import { AxiosRequestConfig, AxiosInstance, AxiosHeaderValue } from 'axios';
 
-export type TypedAxiosInstance = AxiosInstance & {
+export type TypedAxiosInstance = {
   get<T>(url: string, config?: AxiosRequestConfig): Promise<T>;
   delete<T>(url: string, config?: AxiosRequestConfig): Promise<T>;
   post<T>(url: string, data?: unknown, config?: AxiosRequestConfig): Promise<T>;

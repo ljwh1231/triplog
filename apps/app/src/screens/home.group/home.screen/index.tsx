@@ -1,10 +1,12 @@
+import Button from '@components/Button';
 import MapList from '@components/MapList';
 import ScreenTemplate from '@components/ScreenTemplate';
+import { useAsyncEffect } from '@hooks/common';
 import { useNavigationService } from '@hooks/navigation';
+import { commonApi } from '@repo/apis';
 import { ScreenType } from '@types';
 import { StyleSheet, View } from 'react-native';
 import HomeNavBar from './components/HomeNavBar';
-import Button from '@components/Button';
 
 export type HomeScreenParams = {
   HomeScreen: undefined;
@@ -22,6 +24,12 @@ const HomeScreen = () => {
   const handlePressRecord = () => {
     return navigate('MapSearchScreen');
   };
+
+  useAsyncEffect(async () => {
+    const response = await commonApi.getCommonTest({ id: 1 });
+
+    console.log(response);
+  }, []);
 
   return (
     <ScreenTemplate useTopPadding useBottomPadding NavBar={<HomeNavBar />}>
