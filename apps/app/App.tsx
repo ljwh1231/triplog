@@ -2,6 +2,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import AddMapPopup from 'src/global-components/AddMapPopup';
+import ColorPickerBottomSheet from 'src/global-components/ColorPickerBottomSheet';
 import CommonPopup from 'src/global-components/CommonPopup';
 import DropDown from 'src/global-components/DropDown';
 import InputPopup from 'src/global-components/InputPopup';
@@ -15,6 +16,7 @@ const App = () => {
       <SafeAreaProvider>
         <NavigationContainer>
           <RootNavigation />
+          <ColorPickerBottomSheet.Portal />
           <SelectMapBottomSheet.Portal />
           <AddMapPopup.Portal />
           <InputPopup.Portal />

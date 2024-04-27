@@ -11,6 +11,7 @@ import magnifying from './ic_magnifying.svg';
 import more from './ic_more.svg';
 import check from './ic_check.svg';
 import plus from './ic_plus.svg';
+import colorPicker from './ic_color_picker.svg';
 
 export {
   arrowDown,
@@ -26,4 +27,5 @@ export {
   more,
   check,
   plus,
+  colorPicker,
 };
