@@ -2,16 +2,24 @@ import SvgIcon from '@components/SvgIcon';
 import { StyleSheet, TouchableOpacity, View } from 'react-native';
 import ColorPickerBottomSheet from 'src/global-components/ColorPickerBottomSheet';
 import { useMapDetailContext } from '../context/MapDetailContex';
+import { useImagePicker } from '@hooks/image';
 
 const MapDetailActions = () => {
   const { detailData, setDetailData } = useMapDetailContext();
+
+  const { selectImage } = useImagePicker();
 
   const handleChangeColor = (hex: string) => {
     setDetailData({ color: hex });
   };
 
   const handlePressPhoto = () => {
-    return console.log('TODO');
+    return selectImage({
+      multiple: false,
+      onSelect: (image) => {
+        console.log('TODO');
+      },
+    });
   };
 
   const handlePressColorPicker = () => {
