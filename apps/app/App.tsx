@@ -9,22 +9,25 @@ import InputPopup from 'src/global-components/InputPopup';
 import SelectMapBottomSheet from 'src/global-components/SelectMapBottomSheet';
 import Toast from 'src/global-components/Toast';
 import RootNavigation from 'src/navigation/RootNavigation';
+import QueryProvider from 'src/react-query/react-query';
 
 const App = () => {
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
-      <SafeAreaProvider>
-        <NavigationContainer>
-          <RootNavigation />
-          <ColorPickerBottomSheet.Portal />
-          <SelectMapBottomSheet.Portal />
-          <AddMapPopup.Portal />
-          <InputPopup.Portal />
-          <DropDown.Portal />
-          <CommonPopup.Portal />
-          <Toast.Portal />
-        </NavigationContainer>
-      </SafeAreaProvider>
+      <QueryProvider>
+        <SafeAreaProvider>
+          <NavigationContainer>
+            <RootNavigation />
+            <ColorPickerBottomSheet.Portal />
+            <SelectMapBottomSheet.Portal />
+            <AddMapPopup.Portal />
+            <InputPopup.Portal />
+            <DropDown.Portal />
+            <CommonPopup.Portal />
+            <Toast.Portal />
+          </NavigationContainer>
+        </SafeAreaProvider>
+      </QueryProvider>
     </GestureHandlerRootView>
   );
 };

@@ -12,6 +12,7 @@ import more from './ic_more.svg';
 import check from './ic_check.svg';
 import plus from './ic_plus.svg';
 import colorPicker from './ic_color_picker.svg';
+import book from './ic_book.svg';
 
 export {
   arrowDown,
@@ -28,4 +29,5 @@ export {
   check,
   plus,
   colorPicker,
+  book,
 };

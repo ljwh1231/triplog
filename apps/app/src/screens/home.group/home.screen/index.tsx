@@ -1,12 +1,11 @@
 import Button from '@components/Button';
 import MapList from '@components/MapList';
 import ScreenTemplate from '@components/ScreenTemplate';
-import { useAsyncEffect } from '@hooks/common';
 import { useNavigationService } from '@hooks/navigation';
-import { commonApi } from '@repo/apis';
 import { ScreenType } from '@types';
 import { StyleSheet, View } from 'react-native';
 import HomeNavBar from './components/HomeNavBar';
+import SvgIcon from '@components/SvgIcon';
 
 export type HomeScreenParams = {
   HomeScreen: undefined;
@@ -25,18 +24,15 @@ const HomeScreen = () => {
     return navigate('MapSearchScreen');
   };
 
-  useAsyncEffect(async () => {
-    const response = await commonApi.getCommonTest({ id: 1 });
-
-    console.log(response);
-  }, []);
-
   return (
     <ScreenTemplate useTopPadding useBottomPadding NavBar={<HomeNavBar />}>
       <View style={styles.mapListContainer}>
         <MapList onPressItem={handlePressItem} />
       </View>
       <View style={styles.buttonContainer}>
+        <View style={styles.historyButton}>
+          <SvgIcon iconName="book" size={30} />
+        </View>
         <Button.Button onPress={handlePressRecord} text="여행 기록하기" />
       </View>
     </ScreenTemplate>
@@ -50,6 +46,17 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     paddingHorizontal: 20,
+  },
+  historyButton: {
+    width: 60,
+    height: 60,
+    position: 'absolute',
+    borderRadius: 60,
+    backgroundColor: 'black',
+    justifyContent: 'center',
+    alignItems: 'center',
+    right: 20,
+    bottom: 80,
   },
 });
 

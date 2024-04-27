@@ -1,9 +1,9 @@
+import { useNavigationService } from '@hooks/navigation';
 import { ScreenType } from '@types';
+import LottieView from 'lottie-react-native';
 import { useEffect, useRef } from 'react';
 import { StyleSheet, View } from 'react-native';
 import RNBootSplash from 'react-native-bootsplash';
-import LottieView from 'lottie-react-native';
-import { useNavigationService } from '@hooks/navigation';
 
 const BootSplashLottie = require('./asset/splash.json');
 
@@ -24,8 +24,6 @@ const BootSplashScreen = () => {
 
   const onAnimationFinish = () => {
     return replace('HomeScreen');
-    // return replace('MapSearchScreen');
-    // return replace('MapMyListScreen', { title: '친구랑' });
   };
 
   return (

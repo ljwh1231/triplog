@@ -4,12 +4,12 @@ import { useEffect, useState } from 'react';
 const useInitializeApp = () => {
   const [isInitialized, setIsInitialized] = useState(false);
 
-  console.log(isInitialized);
-
   useEffect(() => {
     API.initialize({
-      baseURL: 'https://jsonplaceholder.typicode.com',
-      headers: {},
+      baseURL: 'http://43.203.226.156:3001',
+      headers: {
+        Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiYXV0aElkIjoiMTIzNCIsImlhdCI6MTcxNDI0MDExOSwiZXhwIjoxNzE0ODQ0OTE5fQ.QlYcBNr6ug9Geal1x93g1wo0_18meDkUeNYy3IJn1Iw`,
+      },
     });
 
     setIsInitialized(true);

@@ -11,7 +11,8 @@
       "@constants": ["src/constants/index"],
       "@lib/*": ["src/lib/*"],
       "@apis": ["src/apis/index"],
-      "@storages": ["src/storages/index"]
+      "@storages": ["src/storages/index"],
+      "@react-query/*": ["src/react-query/*"]
     }
   },
   "include": ["src/**/*", "App.tsx", "global.d.ts"]
