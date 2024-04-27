@@ -1,11 +1,11 @@
 import { Module } from '@nestjs/common';
-import { AuthController } from './auth.controller';
-import { AuthService } from './auth.service';
-import { PrismaService } from 'src/common/prisma/prisma.service';
-import { JwtModule } from '@nestjs/jwt';
-import { ConfigModule, ConfigService } from '@nestjs/config';
+import { MapController } from './map.controller';
+import { MapService } from './map.service';
 import { PassportModule } from '@nestjs/passport';
-import { JwtStrategy } from '../common/jwt/jwt.strategy';
+import { ConfigModule, ConfigService } from '@nestjs/config';
+import { JwtModule } from '@nestjs/jwt';
+import { PrismaService } from 'src/common/prisma/prisma.service';
+import { JwtStrategy } from 'src/common/jwt/jwt.strategy';
 
 @Module({
   imports: [
@@ -26,7 +26,7 @@ import { JwtStrategy } from '../common/jwt/jwt.strategy';
     }),
     PassportModule.register({ defaultStrategy: 'jwt' }),
   ],
-  controllers: [AuthController],
-  providers: [AuthService, PrismaService, JwtStrategy, JwtModule],
+  controllers: [MapController],
+  providers: [MapService, PrismaService, JwtStrategy, JwtModule],
 })
-export class AuthModule {}
+export class MapModule {}

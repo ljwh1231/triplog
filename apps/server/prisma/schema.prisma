@@ -11,12 +11,21 @@ datasource db {
 }
 
 model user {
-  id         Int      @id @default(autoincrement())
-  created_at DateTime @default(now())
-  updated_at DateTime @default(now())
+  id         Int       @id @default(autoincrement())
+  created_at DateTime  @default(now())
+  updated_at DateTime  @default(now())
   auth_type  String
   auth_id    String
   email      String
   name       String
-  deleted_at String?
+  deleted_at DateTime?
+}
+
+model map {
+  id         Int       @id @default(autoincrement())
+  created_at DateTime  @default(now())
+  updated_at DateTime  @default(now())
+  user_id    Int
+  name       String
+  deleted_at DateTime?
 }

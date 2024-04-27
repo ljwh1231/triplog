@@ -1,3 +1,4 @@
 import { AuthType } from './auth';
+import { MapType } from './map';
 
-export { AuthType };
+export { AuthType, MapType };
