@@ -1,28 +1,36 @@
 import { useNavigationService } from '@hooks/navigation';
 import appleAuth from '@invertase/react-native-apple-authentication';
-import { supabase } from '@lib/Supabase';
+import { API, authApi } from '@repo/apis';
+import { useAuthStore } from '@store/auth/useAuthStore';
 import { AuthType } from '@types';
-import { jwtDecode } from 'jwt-decode';
+import jwtDecode from 'jwt-decode';
 
 const useAppleAuth = () => {
   const { navigate } = useNavigationService();
+
+  const { setUser } = useAuthStore();
+
   const handleAppleAuth = async () => {
-    await supabase.auth.signInWithOAuth({
-      provider: 'apple',
+    const { identityToken, fullName, user } = await appleAuth.performRequest({
+      requestedScopes: [appleAuth.Scope.FULL_NAME],
     });
 
-    // const { identityToken } = await appleAuth.performRequest({
-    //   requestedScopes: [appleAuth.Scope.FULL_NAME, appleAuth.Scope.EMAIL],
-    // });
+    if (identityToken) {
+      const decoded = jwtDecode(identityToken) as AuthType.AppleAuthResponse;
 
-    // if (identityToken) {
-    // const token = jwtDecode(identityToken) as AuthType.AppleAuthResponse;
+      const res = await authApi.signUp({
+        authId: user,
+        email: decoded.email,
+        name: fullName?.nickname || '',
+        authType: 'apple',
+      });
 
-    // supabase.auth.signInWithIdToken({
-    //   provider: "apple",
+      API.setAuthToken(res.token);
 
-    // })
-    // }
+      setUser(await authApi.signIn());
+
+      navigate('HomeScreen');
+    }
   };
 
   return {

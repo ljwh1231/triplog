@@ -1,16 +1,26 @@
-import { API } from '@repo/apis';
-import { useEffect, useState } from 'react';
+import { useAsyncEffect } from '@hooks/common';
+import { API, authApi } from '@repo/apis';
+import { useAuthStore } from '@store/auth/useAuthStore';
+import { useState } from 'react';
+import { getAccessTokenStorage } from 'src/storages/auth.storage';
 
 const useInitializeApp = () => {
   const [isInitialized, setIsInitialized] = useState(false);
 
-  useEffect(() => {
+  const { setUser } = useAuthStore();
+
+  useAsyncEffect(async () => {
+    const accessToken = getAccessTokenStorage();
+
     API.initialize({
       baseURL: 'http://43.203.226.156:3001',
-      headers: {
-        Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiYXV0aElkIjoiMTIzNCIsImlhdCI6MTcxNDI0MDExOSwiZXhwIjoxNzE0ODQ0OTE5fQ.QlYcBNr6ug9Geal1x93g1wo0_18meDkUeNYy3IJn1Iw`,
-      },
+      headers: {},
     });
+
+    if (accessToken) {
+      API.setAuthToken(accessToken);
+      setUser(await authApi.signIn());
+    }
 
     setIsInitialized(true);
   }, []);

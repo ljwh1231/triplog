@@ -1,5 +1,5 @@
 import NavBar from '@components/NavBar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import SelectMap from './SelectMap';
 
 const HomeNavBar = () => {

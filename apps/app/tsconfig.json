@@ -12,7 +12,8 @@
       "@lib/*": ["src/lib/*"],
       "@apis": ["src/apis/index"],
       "@storages": ["src/storages/index"],
-      "@react-query/*": ["src/react-query/*"]
+      "@react-query/*": ["src/react-query/*"],
+      "@store/*": ["src/store/*"]
     }
   },
   "include": ["src/**/*", "App.tsx", "global.d.ts"]
