@@ -12,7 +12,7 @@ import { Svg } from 'react-native-svg';
 import {
   MapDetailContextProvider,
   useMapDetailContext,
-} from './context/MapDetailContex';
+} from './context/MapDetailContext';
 import MapDetailActions from './component/MapDetailActions';
 
 export type MapDetailScreenParams = {
@@ -87,7 +87,7 @@ const MapDetailScreenComponent = (props: MapDetailScreenComponentProps) => {
               name={name}
               useText={false}
               strokeWidth={0.05}
-              fill={detailData.color || '#ffffff'}
+              fill={detailData.color || '#EDEEF2'}
             />
           </Svg>
           <MapDetailActions />

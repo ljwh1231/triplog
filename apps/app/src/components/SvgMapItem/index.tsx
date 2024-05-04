@@ -49,7 +49,7 @@ const SvgMapItem = (props: SvgMapItemProps) => {
           {...pathProps}
         />
         {useText && centerX && centerY && (
-          <Text x={centerX - 2} y={centerY + 1} fontSize={1.5}>
+          <Text x={centerX - 2} y={centerY + 1} fontSize={0.8}>
             {name}
           </Text>
         )}

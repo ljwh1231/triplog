@@ -1,7 +1,7 @@
 import SvgIcon from '@components/SvgIcon';
 import { StyleSheet, TouchableOpacity, View } from 'react-native';
 import ColorPickerBottomSheet from 'src/global-components/ColorPickerBottomSheet';
-import { useMapDetailContext } from '../context/MapDetailContex';
+import { useMapDetailContext } from '../context/MapDetailContext';
 import { useImagePicker } from '@hooks/image';
 import { usePermission } from '@hooks/permission';
 
