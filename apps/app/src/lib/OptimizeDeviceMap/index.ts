@@ -1,6 +1,6 @@
 import { DEVICE_CONSTANTS } from '@constants';
 import { GeoJSON2SVG } from 'geojson2svg';
-const originalMapJson = require('../../../assets/map.json/detail.json');
+const originalMapJson = require('../../../assets/map.json/detail_simple3.json');
 
 class OptimizeDeviceMap {
   static mapData: { path: string; name: string }[] = [];

@@ -30,6 +30,6 @@ config.transformer = {
   }),
 };
 
-config.resolver.disableHierarchicalLookup = true;
+// config.resolver.disableHierarchicalLookup = true;
 
 module.exports = mergeConfig(getDefaultConfig(__dirname), config);

@@ -43,13 +43,13 @@ const SvgMapItem = (props: SvgMapItemProps) => {
       <G onPress={handlePress}>
         <Path
           d={path}
-          fill={'white'}
-          stroke={'black'}
+          fill={'#EDEEF2'}
+          stroke={'white'}
           strokeWidth={0.2}
           {...pathProps}
         />
         {useText && centerX && centerY && (
-          <Text x={centerX - 2} y={centerY + 1} fontSize={1.5}>
+          <Text x={centerX - 2} y={centerY + 1} fontSize={0.8}>
             {name}
           </Text>
         )}

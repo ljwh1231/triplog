@@ -35,6 +35,8 @@ module.exports = {
           '@lib': './src/lib',
           '@apis': './src/apis',
           '@storages': './src/storages',
+          '@react-query': './src/react-query',
+          '@store': './src/store',
         },
       },
     ],

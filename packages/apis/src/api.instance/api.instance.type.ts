@@ -1,4 +1,4 @@
-import { AxiosRequestConfig, AxiosInstance, AxiosHeaderValue } from 'axios';
+import { AxiosHeaderValue, AxiosRequestConfig } from 'axios';
 
 export type TypedAxiosInstance = {
   get<T>(url: string, config?: AxiosRequestConfig): Promise<T>;

@@ -1,4 +1,4 @@
 import API from './api.instance';
-import * as commonApi from './common';
+import { authApi, AuthApiType } from './auth';
 
-export { API, commonApi };
+export { API, authApi, AuthApiType };

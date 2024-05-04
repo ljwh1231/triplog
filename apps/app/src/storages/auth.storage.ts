@@ -1,4 +1,4 @@
-import { tripLogStorage } from '@storages';
+import { tripLogStorage } from './';
 
 export const setAccessTokenStorage = (accessToken: string) =>
   tripLogStorage.set('accessToken', accessToken);

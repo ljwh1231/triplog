@@ -1,10 +1,19 @@
 import Font from '@components/Font/Font';
 import SvgIcon from '@components/SvgIcon';
+import { useNavigationService } from '@hooks/navigation';
+import { useAuthStore } from '@store/auth/useAuthStore';
 import { StyleSheet, TouchableOpacity, View } from 'react-native';
 import SelectMapBottomSheet from 'src/global-components/SelectMapBottomSheet';
 
 const SelectMap = () => {
+  const { user } = useAuthStore();
+
+  const { navigate } = useNavigationService();
+
   const handlePress = () => {
+    if (!user) {
+      return navigate('LoginMainScreen');
+    }
     return SelectMapBottomSheet.show({});
   };
 
