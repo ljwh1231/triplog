@@ -56,7 +56,7 @@ const SvgMapItem = (props: SvgMapItemProps) => {
         {imageUrl && (
           <Image
             xlinkHref={
-              'https://thumb.hypen.im/thumbnail/1q7pk8qw/3/2958/200_200_cover/47mycltmplfgmw39mgqw.jpg'
+              'https://thumb.hypen.im/0xr66yxd/3/4159/y662bltkekb5nln7y1dk.jpg?type=f&w=800&h=800'
             }
             x={minX}
             y={minY}

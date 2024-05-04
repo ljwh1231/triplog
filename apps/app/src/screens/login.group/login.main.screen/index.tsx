@@ -22,6 +22,7 @@ const LoginMainScreen = () => {
           iconName="kakao"
           onPress={handleKakaoAuth}
           style={{ backgroundColor: '#FEE601' }}
+          fontStyle={{ color: 'black' }}
         />
         <Button
           text="Apple로 로그인"
