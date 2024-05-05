@@ -33,7 +33,7 @@ export class MapController {
 
   @UseGuards(JwtAuthGuard)
   @Get()
-  async getMapList(@Req() req): Promise<MapType.MapList>{
+  async getMapList(@Req() req): Promise<MapType.MapList> {
     const { id } = req.user as AuthPayload;
     const maps = await this.mapService.getMyMapList(id);
     return {
