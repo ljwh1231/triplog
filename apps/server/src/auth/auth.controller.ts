@@ -2,12 +2,13 @@ import {
   Body,
   Controller,
   Get,
+  Patch,
   Post,
   Request,
   UseGuards,
 } from '@nestjs/common';
 import { AuthService } from './auth.service';
-import { AuthType } from '@repo/global-type';
+import { AuthType, CommonType } from '@repo/global-type';
 import { JwtAuthGuard } from '../infra/jwt/jwt-auth.guard';
 import { AuthPayload } from 'src/types/auth.type';
 import {
@@ -114,5 +115,24 @@ export class AuthController {
         authId: user.auth_id,
       }),
     };
+  }
+
+  @UseGuards(JwtAuthGuard)
+  @Patch('push')
+  async patchPushToken(
+    @Request() req,
+    @Body('pushToken') pushToken: string,
+  ): Promise<CommonType.ResOk> {
+    const { id } = req.user as AuthPayload;
+    await this.authService.patchUser(
+      {
+        id: id,
+      },
+      {
+        push_token: pushToken,
+      },
+    );
+
+    return { success: true };
   }
 }

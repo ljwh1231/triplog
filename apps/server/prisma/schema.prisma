@@ -19,6 +19,7 @@ model user {
   email      String
   name       String
   deleted_at DateTime?
+  push_token String?
 }
 
 model map {
