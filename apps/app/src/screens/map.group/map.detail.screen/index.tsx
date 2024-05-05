@@ -14,6 +14,8 @@ import {
   useMapDetailContext,
 } from './context/MapDetailContext';
 import MapDetailActions from './component/MapDetailActions';
+import { useKeyboard } from '@hooks/ui';
+import { useEffect, useRef } from 'react';
 
 export type MapDetailScreenParams = {
   MapDetailScreen: {
@@ -47,6 +49,8 @@ type MapDetailScreenComponentProps = {
 const MapDetailScreenComponent = (props: MapDetailScreenComponentProps) => {
   const { mapData } = props;
 
+  const scrollViewRef = useRef<ScrollView>(null);
+
   const { goBack } = useNavigationService();
 
   const {
@@ -65,6 +69,14 @@ const MapDetailScreenComponent = (props: MapDetailScreenComponentProps) => {
     return setDetailData({ content });
   };
 
+  const { isKeyboardVisible } = useKeyboard();
+
+  useEffect(() => {
+    if (isKeyboardVisible) {
+      scrollViewRef.current?.scrollToEnd({ animated: true });
+    }
+  }, [isKeyboardVisible]);
+
   return (
     <KeyboardScreenTemplate
       NavBar={
@@ -73,7 +85,7 @@ const MapDetailScreenComponent = (props: MapDetailScreenComponentProps) => {
           leftComponent={<NavBar.Icon iconName="arrowLeft" onPress={goBack} />}
         />
       }>
-      <ScrollView style={styles.container}>
+      <ScrollView style={styles.container} ref={scrollViewRef}>
         <View style={styles.mapItemContainer}>
           <Svg
             viewBox={viewBox}
