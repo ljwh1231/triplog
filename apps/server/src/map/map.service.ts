@@ -1,5 +1,5 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
-import { PrismaService } from 'src/common/prisma/prisma.service';
+import { PrismaService } from 'src/infra/prisma/prisma.service';
 import { Prisma, map } from '@prisma/client';
 import { MapType } from '@repo/global-type';
 

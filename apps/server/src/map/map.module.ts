@@ -4,8 +4,8 @@ import { MapService } from './map.service';
 import { PassportModule } from '@nestjs/passport';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { JwtModule } from '@nestjs/jwt';
-import { PrismaService } from 'src/common/prisma/prisma.service';
-import { JwtStrategy } from 'src/common/jwt/jwt.strategy';
+import { PrismaService } from 'src/infra/prisma/prisma.service';
+import { JwtStrategy } from 'src/infra/jwt/jwt.strategy';
 
 @Module({
   imports: [
