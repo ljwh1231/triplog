@@ -27,4 +27,14 @@ export class AuthService {
       where: data,
     });
   }
+
+  async patchUser(
+    params: Prisma.userWhereUniqueInput,
+    data: Prisma.userUpdateInput,
+  ) {
+    this.prisma.user.update({
+      where: params,
+      data: data,
+    });
+  }
 }

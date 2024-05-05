@@ -2,15 +2,17 @@ import {
   Body,
   Controller,
   Get,
+  Patch,
   Post,
   Request,
   UseGuards,
 } from '@nestjs/common';
 import { AuthService } from './auth.service';
-import { AuthType } from '@repo/global-type';
+import { AuthType, CommonType } from '@repo/global-type';
 import { JwtAuthGuard } from '../infra/jwt/jwt-auth.guard';
 import { AuthPayload } from 'src/types/auth.type';
 import {
+  ApiBody,
   ApiCreatedResponse,
   ApiHeader,
   ApiOkResponse,
@@ -114,5 +116,50 @@ export class AuthController {
         authId: user.auth_id,
       }),
     };
+  }
+
+  @UseGuards(JwtAuthGuard)
+  @ApiHeader({
+    name: 'Authorization',
+    description: 'JWT 토큰',
+    example: 'Bearer asdfasdf',
+  })
+  @ApiBody({
+    schema: {
+      properties: {
+        pushToken: {
+          type: 'string',
+          description: 'push token',
+        },
+      },
+    },
+  })
+  @ApiOkResponse({
+    description: '유저 프로필 조회 및 토큰 재발급',
+    schema: {
+      properties: {
+        success: {
+          type: 'boolean',
+          description: '성공 여부',
+        },
+      },
+    },
+  })
+  @Patch('push')
+  async patchPushToken(
+    @Request() req,
+    @Body('pushToken') pushToken: string,
+  ): Promise<CommonType.ResOk> {
+    const { id } = req.user as AuthPayload;
+    await this.authService.patchUser(
+      {
+        id: id,
+      },
+      {
+        push_token: pushToken,
+      },
+    );
+
+    return { success: true };
   }
 }
