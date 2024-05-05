@@ -1,15 +1,14 @@
 import { Module } from '@nestjs/common';
-import { MapController } from './map.controller';
-import { MapService } from './map.service';
+import { CommonController } from './common.controller';
+import { CommonService } from './common.service';
+import { AwsService } from 'src/infra/aws/aws.service';
 import { PassportModule } from '@nestjs/passport';
-import { ConfigModule, ConfigService } from '@nestjs/config';
 import { JwtModule } from '@nestjs/jwt';
-import { PrismaService } from 'src/infra/prisma/prisma.service';
+import { ConfigService } from '@nestjs/config';
 import { JwtStrategy } from 'src/infra/jwt/jwt.strategy';
 
 @Module({
   imports: [
-    ConfigModule,
     JwtModule.registerAsync({
       inject: [ConfigService],
       global: true,
@@ -26,7 +25,7 @@ import { JwtStrategy } from 'src/infra/jwt/jwt.strategy';
     }),
     PassportModule.register({ defaultStrategy: 'jwt' }),
   ],
-  controllers: [MapController],
-  providers: [MapService, PrismaService, JwtStrategy, JwtModule],
+  controllers: [CommonController],
+  providers: [CommonService, AwsService, JwtStrategy, JwtModule],
 })
-export class MapModule {}
+export class CommonModule {}

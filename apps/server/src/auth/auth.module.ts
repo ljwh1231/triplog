@@ -1,11 +1,11 @@
 import { Module } from '@nestjs/common';
 import { AuthController } from './auth.controller';
 import { AuthService } from './auth.service';
-import { PrismaService } from 'src/common/prisma/prisma.service';
+import { PrismaService } from 'src/infra/prisma/prisma.service';
 import { JwtModule } from '@nestjs/jwt';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { PassportModule } from '@nestjs/passport';
-import { JwtStrategy } from '../common/jwt/jwt.strategy';
+import { JwtStrategy } from '../infra/jwt/jwt.strategy';
 
 @Module({
   imports: [

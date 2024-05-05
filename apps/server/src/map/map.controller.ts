@@ -10,7 +10,7 @@ import {
   Req,
   UseGuards,
 } from '@nestjs/common';
-import { JwtAuthGuard } from 'src/common/jwt/jwt-auth.guard';
+import { JwtAuthGuard } from 'src/infra/jwt/jwt-auth.guard';
 import { AuthPayload } from 'src/types/auth.type';
 import { MapService } from './map.service';
 import { ApiCreatedResponse, ApiOkResponse } from '@nestjs/swagger';

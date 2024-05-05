@@ -8,7 +8,7 @@ import {
 } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { AuthType } from '@repo/global-type';
-import { JwtAuthGuard } from '../common/jwt/jwt-auth.guard';
+import { JwtAuthGuard } from '../infra/jwt/jwt-auth.guard';
 import { AuthPayload } from 'src/types/auth.type';
 import {
   ApiCreatedResponse,
