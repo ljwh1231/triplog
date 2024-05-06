@@ -1,13 +1,7 @@
 import Font from '@components/Font/Font';
 import { useNavigationService } from '@hooks/navigation';
 import { MapType } from '@repo/global-type';
-import {
-  Pressable,
-  StyleSheet,
-  TouchableHighlight,
-  TouchableOpacity,
-  View,
-} from 'react-native';
+import { StyleSheet, TouchableOpacity, View } from 'react-native';
 
 type HistoryListItemProps = {
   width: number;
