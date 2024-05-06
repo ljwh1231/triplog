@@ -5,7 +5,7 @@ import { authApi } from '@repo/apis';
 const useUserInfo = () => {
   return useQuery({
     queryKey: getAuthQueryKey('USER_INFO'),
-    queryFn: () => authApi.signIn(),
+    queryFn: () => authApi.getProfile(),
   });
 };
 

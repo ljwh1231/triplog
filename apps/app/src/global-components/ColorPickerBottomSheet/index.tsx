@@ -34,7 +34,6 @@ const ColorPickerBottomSheet = (props: ColorPickerBottomSheetProps) => {
 
   const onSelectColor = ({ hex }: { hex: string }) => {
     // do something with the selected color.
-    console.log(hex);
     onPress(hex);
   };
 

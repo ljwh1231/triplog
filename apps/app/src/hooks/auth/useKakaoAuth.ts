@@ -1,6 +1,7 @@
 import { useNavigationService } from '@hooks/navigation';
 import { getProfile, login } from '@react-native-seoul/kakao-login';
 import { API, authApi } from '@repo/apis';
+import { authStorage } from '@storages';
 import { useAuthStore } from '@store/auth/useAuthStore';
 
 const useKakaoAuth = () => {
@@ -14,14 +15,18 @@ const useKakaoAuth = () => {
 
       const profile = await getProfile();
 
-      const res = await authApi.signUp({
+      const { token } = await authApi.signUp({
         authType: 'kakao',
         name: profile.nickname,
-        authId: profile.id,
+        authId: profile.id.toString(),
         email: profile.email,
       });
 
-      setUser(await authApi.signIn());
+      authStorage.setAccessTokenStorage(token);
+
+      API.setAuthToken(token);
+
+      setUser(await authApi.getProfile());
 
       navigate('HomeScreen');
     } catch (e) {

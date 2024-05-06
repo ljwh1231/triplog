@@ -5,3 +5,6 @@ export const setAccessTokenStorage = (accessToken: string) =>
 
 export const getAccessTokenStorage = () =>
   tripLogStorage.getString('accessToken');
+
+export const deleteAccessTokenStorage = () =>
+  tripLogStorage.delete('accessToken');

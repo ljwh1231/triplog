@@ -1,9 +1,9 @@
-import { create } from 'zustand';
 import { AuthApiType } from '@repo/apis';
+import { create } from 'zustand';
 
 type AuthStore = {
-  user: AuthApiType.SignInResponse | null;
-  setUser: (user: AuthApiType.SignInResponse | null) => void;
+  user: AuthApiType.GetProfileResponse | null;
+  setUser: (user: AuthApiType.GetProfileResponse | null) => void;
 };
 
 export const useAuthStore = create<AuthStore>((set) => ({
