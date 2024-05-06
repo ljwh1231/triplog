@@ -1,5 +1,8 @@
 import Font from '@components/Font/Font';
 import SvgIcon from '@components/SvgIcon';
+import { MapType } from '@repo/global-type';
+import { mapStorage } from '@storages';
+import { useSelectedMapStore } from '@store/map/useSelectedMap';
 import {
   StyleProp,
   StyleSheet,
@@ -9,14 +12,14 @@ import {
 } from 'react-native';
 
 type SelectMapItemProps = {
-  item: {
-    title: string;
-  };
+  map: MapType.Map;
   selected: boolean;
 };
 
 const SelectMapItem = (props: SelectMapItemProps) => {
-  const { item, selected } = props;
+  const { map, selected } = props;
+
+  const { setSelectedMap } = useSelectedMapStore();
 
   const getStyle = (): {
     container: StyleProp<ViewStyle>;
@@ -42,11 +45,16 @@ const SelectMapItem = (props: SelectMapItemProps) => {
 
   const { container, color } = getStyle();
 
+  const handlePress = () => {
+    setSelectedMap(map);
+    mapStorage.setSelectedMapIdStorage(map.id);
+  };
+
   return (
-    <TouchableOpacity>
+    <TouchableOpacity onPress={handlePress}>
       <View style={[styles.container, container]}>
         <SvgIcon iconName="check" color={color} size={24} />
-        <Font type="semibold_16" text={item.title} />
+        <Font type="semibold_16" text={map.name} />
       </View>
     </TouchableOpacity>
   );
