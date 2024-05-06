@@ -51,7 +51,7 @@ const Toast = (props: ToastProps) => {
           onPress && onPress();
         }}>
         <Animated.View style={[slide, fade, styles.container, { top }]}>
-          {iconName && <SvgIcon iconName={iconName} size={24} />}
+          {iconName && <SvgIcon iconName={iconName} color="white" size={24} />}
           <View>
             <Font type="semibold_14" color="white" text={text} />
           </View>
