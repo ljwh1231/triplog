@@ -1,12 +1,28 @@
 import Font from '@components/Font/Font';
 import SvgIcon from '@components/SvgIcon';
+import { mapApi } from '@repo/apis';
 import { StyleSheet, TouchableOpacity, View } from 'react-native';
 import { PopupManager } from 'react-native-global-components';
 import InputPopup from 'src/global-components/InputPopup';
+import Toast from 'src/global-components/Toast';
 
 const AddMapItem = () => {
+  const handlePressOk = async (name: string) => {
+    try {
+      await mapApi.createMap({ name });
+
+      Toast.show({
+        text: '추가가 완료되었어요',
+        iconName: 'check',
+      });
+    } catch (e) {
+      console.error('[Error on create map] : ', e);
+    }
+  };
+
   const handlePress = async () => {
     await PopupManager.hideAll();
+
     InputPopup.show({
       title: '지도 추가하기',
       inputProps: {
@@ -14,7 +30,7 @@ const AddMapItem = () => {
         autoFocus: true,
       },
       onPressOk: async (text) => {
-        console.log(text);
+        handlePressOk(text);
       },
       okText: '추가하기',
       cancelText: '취소',

@@ -10,7 +10,6 @@
       "@utils": ["src/utils/index"],
       "@constants": ["src/constants/index"],
       "@lib/*": ["src/lib/*"],
-      "@apis": ["src/apis/index"],
       "@storages": ["src/storages/index"],
       "@react-query/*": ["src/react-query/*"],
       "@store/*": ["src/store/*"]

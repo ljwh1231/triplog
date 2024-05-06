@@ -7,7 +7,7 @@ export type SignUpParams = {
   email: string;
 };
 
-export type SignInResponse = {
+export type GetProfileResponse = {
   authId: string;
   name: string;
   email: string;

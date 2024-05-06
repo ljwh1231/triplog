@@ -7,20 +7,24 @@ import { FlatList } from 'react-native-gesture-handler';
 import HistoryListItem from './component/HistoryListItem';
 import { useCallback } from 'react';
 import { DEVICE_CONSTANTS } from '@constants';
+import useMyMapList from '@react-query/map/useMyMapList';
+import { MapType } from '@repo/global-type';
 
 export type HistoryListScreenParams = {
   HistoryListScreen: undefined;
 };
-
-const dummy = Array.from({ length: 10 }, (_, i) => i);
 
 const HistoryListScreen = () => {
   const { goBack } = useNavigationService();
 
   const itemWidth = (DEVICE_CONSTANTS.WIDTH - 40) / 2 - 4;
 
-  const renderItem: ListRenderItem<number> = useCallback(({ item }) => {
-    return <HistoryListItem width={itemWidth} item={item} />;
+  const { data } = useMyMapList();
+
+  const maps = data?.maps || [];
+
+  const renderItem: ListRenderItem<MapType.Map> = useCallback(({ item }) => {
+    return <HistoryListItem width={itemWidth} map={item} />;
   }, []);
 
   return (
@@ -33,7 +37,7 @@ const HistoryListScreen = () => {
       }
       useBottomPadding={false}>
       <FlatList
-        data={dummy}
+        data={maps}
         renderItem={renderItem}
         keyExtractor={(item) => item.toString()}
         style={{

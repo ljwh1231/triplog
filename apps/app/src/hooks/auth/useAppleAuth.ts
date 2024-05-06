@@ -1,9 +1,9 @@
 import { useNavigationService } from '@hooks/navigation';
 import appleAuth from '@invertase/react-native-apple-authentication';
-import { API, authApi } from '@repo/apis';
 import { useAuthStore } from '@store/auth/useAuthStore';
 import { AuthType } from '@types';
 import jwtDecode from 'jwt-decode';
+import { authApi, API } from '@repo/apis';
 
 const useAppleAuth = () => {
   const { navigate } = useNavigationService();
@@ -27,7 +27,7 @@ const useAppleAuth = () => {
 
       API.setAuthToken(res.token);
 
-      setUser(await authApi.signIn());
+      setUser(await authApi.getProfile());
 
       navigate('HomeScreen');
     }

@@ -6,10 +6,11 @@ import { useCallback, useState } from 'react';
 import { FlatList, ListRenderItem, RefreshControl } from 'react-native';
 import MyMapListItem from './component/MyMapListItem';
 import MyMapListNavBar from './component/MyMapListNavBar';
+import useMyMapList from '@react-query/map/useMyMapList';
 
 export type MapMyListScreenParams = {
   MapMyListScreen: {
-    title: string;
+    id: number;
   };
 };
 
@@ -54,7 +55,7 @@ const dummy = [
 
 const MapMyListScreen = () => {
   const {
-    params: { title },
+    params: { id },
   } = useNavigationRoute('MapMyListScreen');
 
   const [refreshing, setRefreshing] = useState(false);
@@ -65,6 +66,12 @@ const MapMyListScreen = () => {
     setRefreshing(false);
   };
 
+  const { data } = useMyMapList();
+
+  const maps = data?.maps || [];
+
+  const map = maps.find((map) => map.id === id);
+
   const renderItem: ListRenderItem<(typeof dummy)[0]> = useCallback(
     ({ item }) => {
       return <MyMapListItem {...item} />;
@@ -72,9 +79,11 @@ const MapMyListScreen = () => {
     [],
   );
 
+  if (!map) return <></>;
+
   return (
     <ScreenTemplate
-      NavBar={<MyMapListNavBar title={title} />}
+      NavBar={<MyMapListNavBar title={map.name} />}
       useBottomPadding={false}>
       <FlatList
         data={dummy}

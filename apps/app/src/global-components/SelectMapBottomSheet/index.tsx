@@ -14,31 +14,19 @@ import {
 import SelectMapItem from './component/SelectMapItem';
 import AddMapItem from './component/AddMapItem';
 import useCloseBottomSheetAnimation from '../hook/useCloseBottomSheetAnimation';
-
-const dummy: {
-  item: {
-    title: string;
-  };
-  selected: boolean;
-}[] = [
-  {
-    item: {
-      title: '친구랑',
-    },
-    selected: false,
-  },
-  {
-    item: {
-      title: '가족이랑',
-    },
-    selected: true,
-  },
-];
+import useMyMapList from '@react-query/map/useMyMapList';
+import { useSelectedMapStore } from '@store/map/useSelectedMap';
 
 const SelectMapBottomSheet = () => {
   const bottomSheetRef = useRef<BottomSheetModal>(null);
 
   const { hide } = usePopupContext();
+
+  const { data } = useMyMapList();
+
+  const maps = data?.maps || [];
+
+  const { selectedMap } = useSelectedMapStore();
 
   const closeBottomSheet = async () => {
     bottomSheetRef.current?.close();
@@ -64,8 +52,12 @@ const SelectMapBottomSheet = () => {
           <ScrollView style={styles.container}>
             <Font type="bold_20" text={'지도 선택'} />
             <View style={styles.itemContainer}>
-              {dummy.map((d, i) => (
-                <SelectMapItem item={d.item} selected={d.selected} key={i} />
+              {maps.map((d) => (
+                <SelectMapItem
+                  map={d}
+                  selected={selectedMap?.id === d.id}
+                  key={d.id}
+                />
               ))}
               <AddMapItem />
             </View>
