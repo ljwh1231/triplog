@@ -13,7 +13,7 @@ import { CommonType } from '@repo/global-type';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { ApiBody, ApiHeader } from '@nestjs/swagger';
 
-@Controller('common')
+@Controller()
 export class CommonController {
   constructor(private readonly awsService: AwsService) {}
 

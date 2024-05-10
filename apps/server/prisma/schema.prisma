@@ -30,3 +30,18 @@ model map {
   name       String
   deleted_at DateTime?
 }
+
+model map_record {
+  id              Int      @id @default(autoincrement())
+  created_at      DateTime @default(now())
+  updated_at      DateTime @default(now())
+  user_id         Int
+  map_id          Int
+  region_name     String
+  data_type       String
+  data            Json
+  trip_start_date DateTime
+  trip_end_date   DateTime
+  trip_memo       String
+  is_deleted      Boolean  @default(false)
+}

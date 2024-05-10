@@ -5,6 +5,7 @@ import { JwtModule } from '@nestjs/jwt';
 import { MapModule } from './map/map.module';
 import { AwsModule } from './infra/aws/aws.module';
 import { CommonModule } from './common/common.module';
+import { RouterModule } from '@nestjs/core';
 
 @Module({
   imports: [
@@ -30,6 +31,20 @@ import { CommonModule } from './common/common.module';
     MapModule,
     AwsModule,
     CommonModule,
+    RouterModule.register([
+      {
+        path: 'auth',
+        module: AuthModule,
+      },
+      {
+        path: 'map',
+        module: MapModule,
+      },
+      {
+        path: 'common',
+        module: CommonModule,
+      },
+    ]),
   ],
 })
 export class AppModule {}
