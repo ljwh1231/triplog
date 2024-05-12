@@ -12,13 +12,13 @@ export class MapService {
   }
 
   async getMyMapList(userId: number): Promise<MapType.Map[]> {
-    const maps = this.prisma.map.findMany({
+    const maps = await this.prisma.map.findMany({
       select: { id: true, created_at: true, name: true },
       where: { user_id: userId, deleted_at: null },
       orderBy: { id: 'desc' },
     });
 
-    return (await maps).map((value): MapType.Map => {
+    return maps.map((value): MapType.Map => {
       return {
         id: value.id,
         createdAt: value.created_at,

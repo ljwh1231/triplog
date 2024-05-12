@@ -16,7 +16,7 @@ import { MapService } from './map.service';
 import { ApiCreatedResponse, ApiOkResponse } from '@nestjs/swagger';
 import { MapType } from '@repo/global-type';
 
-@Controller('map')
+@Controller()
 export class MapController {
   constructor(private mapService: MapService) {}
 
